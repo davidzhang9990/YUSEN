@@ -817,6 +817,8 @@
     <Content Include="Modules\Membership\Web\Index.cshtml" />
     <Content Include="Modules\Membership\Web\CreateEnList\CreateEnList.cshtml" />
     <Content Include="Content\site\site.default.less" />
+    <Content Include="Modules\Membership\Web\NewsList.cshtml" />
+    <Content Include="Modules\Membership\Web\NewsDetail.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -1705,6 +1707,8 @@
     <Compile Include="Modules\Membership\Web\CreateEnList\EnListRequest.cs" />
     <Compile Include="Modules\Membership\Web\CreateEnList\EnListForm.cs" />
     <Compile Include="Modules\Membership\Web\CreateEnList\WebPage.CreateEnList.cs" />
+    <Compile Include="Modules\Membership\Web\NewsListModel.cs" />
+    <Compile Include="Modules\Membership\Web\NewsCategoryModel.cs" />
     <Compile Include="Modules\Membership\Web\WebPage.cs" />
     <Compile Include="Modules\Texts.cs" />
     <Compile Include="Modules\Membership\Account\AccountPage.cs" />
