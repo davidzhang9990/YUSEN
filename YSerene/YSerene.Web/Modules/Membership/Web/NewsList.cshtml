@@ -1,0 +1,19 @@
+﻿@using System.Activities.Statements
+@model YSerene.Membership.NewsListModel
+@{
+    ViewData["Title"] = "Index";
+    ViewData["PageId"] = "Index";
+    Layout = MVC.Views.Shared._NewLayout;
+}
+Index test page..
+
+
+@foreach (var news in Model.NewsList)
+{
+    <div>
+        <a href="~/NewsDetail?cateId=@news.NewsId">@news.Title</a>
+    </div>
+    <div>
+        @Html.Raw(news.Description)
+    </div>
+}

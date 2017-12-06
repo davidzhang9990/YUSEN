@@ -1,6 +1,15 @@
-﻿@{
+﻿@using System.Activities.Statements
+@model YSerene.Membership.NewsCategoryModel
+@{
     ViewData["Title"] = "Index";
     ViewData["PageId"] = "Index";
     Layout = MVC.Views.Shared._NewLayout;
 }
 Index test page..
+
+
+@foreach (var category in Model.NewsCategoryLists)
+{
+    <div>@category.CategoryName</div>
+    <div>@category.Description</div>
+}
