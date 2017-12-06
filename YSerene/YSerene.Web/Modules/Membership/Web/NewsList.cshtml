@@ -1,19 +1,62 @@
 ﻿@using System.Activities.Statements
-@model YSerene.Membership.NewsListModel
+
 @{
     ViewData["Title"] = "Index";
     ViewData["PageId"] = "Index";
     Layout = MVC.Views.Shared._NewLayout;
 }
-Index test page..
 
+<h1>Index test page..</h1>
+@*<div>
+       pagecount:@Model.PageCount
+    </div>
 
-@foreach (var news in Model.NewsList)
-{
-    <div>
-        <a href="~/NewsDetail?cateId=@news.NewsId">@news.Title</a>
-    </div>
-    <div>
-        @Html.Raw(news.Description)
-    </div>
-}
+    @if (@Model.PageCount > 0)
+            {
+                    <a href="~/NewsList?page=@Model.PageCount"></a><<a href="~/NewsList?page=@Model.PageCount"></a>
+             }
+         @foreach (var news in Model.NewsList)
+              {
+                   <div><div>
+                            编号：@news.NewsId
+                          </div></div>
+                      <img src="~/upload/@news.Image" width="100" height="100" /><img src="~/upload/@news.Image" width="100" height="100" />
+                       <div><div>
+                               <a href="~/NewsDetail?cateId=@news.NewsId">@news.Title</a><a href="~/NewsDetail?cateId=@news.NewsId"></a>
+                          </div>
+                    </div>
+                      <div><div>
+                               @Html.Raw(news.Description)
+                          </div>
+                    </div>
+                   }*@
+<div id="newpanel">
+
+</div>
+<input type="hidden" id="pagecount" value="0">
+<a href="javascript:;" onclick="initList();" id="more_button"><i class="fa fa-angle-right"></i>&nbsp;更多》</a>
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        initList();
+    });
+
+    function initList() {
+        $.get("/GetNewsQuery", {
+            page: $("#pagecount").val()
+        }, function (result) {
+            //sessionStorage.setItem("Order_FinishType", prodata);
+            var data = eval("(" + result + ")");
+            var $html = "";
+            for (var i in data.rows) {
+                $html += "编号：" + data.rows[i].NewsId + "<br/>";
+                $html += "图片：<img src=\"/upload/" + data.rows[i].Image + "\" width=\"100\" height=\"100\" /><br/>";
+                $html += "标题：" + data.rows[i].Title + "<br/>";
+                $html += "明细：" + data.rows[i].Description + "<br/>";
+            }
+            $("#newpanel").html($html);
+            $("#pagecount").val(data.page);
+            if (data.page * 2 >= data.total) $("#more_button").hide();
+        });
+    }
+</script>

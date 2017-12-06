@@ -1,5 +1,6 @@
 ﻿
 using System.Linq;
+using System.Text;
 using Serenity.Data;
 using YSerene.Default.Entities;
 
@@ -33,16 +34,47 @@ namespace YSerene.Membership.Pages
         [HttpGet]
         public ActionResult NewsList()
         {
+            //            using (var connection = SqlConnections.NewByKey("Default"))
+            //            using (var uow = new UnitOfWork(connection))
+            //            {
+            //                //var cateList = uow.Connection.Query<NewsCategoryRow>("select * from NewsCategory");
+            //                var newsList = uow.Connection.List<NewsRow>();
+            //                var total = page * 2;
+            //
+            //                if (total >= newsList.Count)
+            //                {
+            //                    page = -1;
+            //                }
+            //
+            //                page = page + 1;
+            //                return View(MVC.Views.Membership.Web.NewsList, new NewsListModel()
+            //                {
+            //                    NewsList = newsList.Take(total).OrderBy(x => x.NewsId),
+            //                    PageCount = page
+            //                });
+            //            }
+            return View(MVC.Views.Membership.Web.NewsList);
+        }
+
+        [HttpGet]
+        public ActionResult GetNewsQuery(int page = 0)
+        {
             using (var connection = SqlConnections.NewByKey("Default"))
             using (var uow = new UnitOfWork(connection))
             {
+                page = page + 1;
                 //var cateList = uow.Connection.Query<NewsCategoryRow>("select * from NewsCategory");
                 var newsList = uow.Connection.List<NewsRow>();
+                var total = page * 2;
 
-                return View(MVC.Views.Membership.Web.NewsList, new NewsListModel()
+                var jsonData = new
                 {
-                    NewsList = newsList
-                });
+                    rows = newsList.Take(total).OrderBy(x => x.NewsId).ToList(),
+                    total = newsList.Count,
+                    page = page
+                };
+
+                return Content(jsonData.ToJson(), "application/Json", Encoding.UTF8);
             }
         }
 
