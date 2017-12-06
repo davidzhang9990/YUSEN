@@ -9,7 +9,7 @@ namespace YSerene.Common.Pages
     [RoutePrefix("Dashboard"), Route("{action=index}")]
     public class DashboardController : Controller
     {
-        [Authorize, HttpGet, Route("~/")]
+        [Authorize, HttpGet, Route("~/Dashboard/Index")]
         public ActionResult Index()
         {
             return View(MVC.Views.Common.Dashboard.DashboardIndex, new DashboardPageModel());

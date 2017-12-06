@@ -12,7 +12,12 @@ namespace YSerene.Migrations.DefaultDB
                 .WithColumn("Mobile").AsString(11).NotNullable()
                 .WithColumn("ChildName").AsString(50).NotNullable()
                 .WithColumn("Sex").AsInt32().NotNullable()
-                .WithColumn("Birthday").AsDateTime().NotNullable());
+                .WithColumn("Birthday").AsDateTime().NotNullable()
+                .WithColumn("InsertDate").AsDateTime().NotNullable()
+                .WithColumn("InsertUserId").AsInt32().NotNullable()
+                .WithColumn("UpdateDate").AsDateTime().Nullable()
+                .WithColumn("UpdateUserId").AsInt32().Nullable()
+                .WithColumn("IsActive").AsInt16().NotNullable().WithDefaultValue(1));
         }
     }
 }
