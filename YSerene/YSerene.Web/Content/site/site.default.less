@@ -9,6 +9,12 @@
 .s-Default-NewsDialog {
     > .size { width: 650px; }
     .caption { width: 150px; }
+     @media (min-width: 768px) {
+        .field.Title, .field.CategoryId, .field.SourceSite, .field.CreateDate {
+            flex: auto;
+            min-width: 50%;
+        }
+    }
 }
 
 .s-Default-NewsCategoryDialog {

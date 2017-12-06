@@ -48,6 +48,16 @@ namespace MVC
             {
                 public const string EnListIndex = "~/Modules/Default/EnList/EnListIndex.cshtml";
             }
+
+            public static class News
+            {
+                public const string NewsIndex = "~/Modules/Default/News/NewsIndex.cshtml";
+            }
+
+            public static class NewsCategory
+            {
+                public const string NewsCategoryIndex = "~/Modules/Default/NewsCategory/NewsCategoryIndex.cshtml";
+            }
         }
 
         public static class Errors

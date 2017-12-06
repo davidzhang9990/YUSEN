@@ -7,7 +7,7 @@ namespace YSerene.Migrations.DefaultDB
     {
         public override void Up()
         {
-            this.CreateTableWithId64("NewsCategory", "CategoryID", s => s
+            this.CreateTableWithId32("NewsCategory", "CategoryID", s => s
                 .WithColumn("CategoryName").AsString(50).NotNullable()
                 .WithColumn("Description").AsString(500).Nullable()
                 .WithColumn("InsertDate").AsDateTime().NotNullable()
@@ -16,9 +16,11 @@ namespace YSerene.Migrations.DefaultDB
                 .WithColumn("UpdateUserId").AsInt32().Nullable()
                 .WithColumn("IsActive").AsInt16().NotNullable().WithDefaultValue(1));
 
-            this.CreateTableWithId64("News", "NewsID", s => s
+            this.CreateTableWithId32("News", "NewsID", s => s
                 .WithColumn("Title").AsString(100).NotNullable()
                 .WithColumn("Image").AsString(100).NotNullable()
+                .WithColumn("CategoryID").AsInt32().NotNullable()
+                .ForeignKey("FK_News_CategoryID", "NewsCategory", "CategoryID")
                 .WithColumn("SourceSite").AsString(100).NotNullable()
                 .WithColumn("CreateDate").AsDateTime().NotNullable()
                 .WithColumn("Description").AsString(int.MaxValue).Nullable()

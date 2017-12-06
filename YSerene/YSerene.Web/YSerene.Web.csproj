@@ -816,6 +816,7 @@
     <Content Include="wkhtmltopdf-license.txt" />
     <Content Include="Modules\Membership\Web\Index.cshtml" />
     <Content Include="Modules\Membership\Web\CreateEnList\CreateEnList.cshtml" />
+    <Content Include="Content\site\site.default.less" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -1304,6 +1305,12 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Default.EnListColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.NewsCategoryColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.NewsColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Membership.CreateEnListRequest.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1574,6 +1581,30 @@
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <Content Include="wwwroot\Content\site\site.default.less" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.NewsRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.NewsService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\News\NewsIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\News\NewsDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\News\NewsGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.NewsForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.NewsCategoryRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.NewsCategoryService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\NewsCategory\NewsCategoryIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\NewsCategory\NewsCategoryDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\NewsCategory\NewsCategoryGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.NewsCategoryForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1719,6 +1750,19 @@
     <Compile Include="Modules\Default\EnList\EnListPage.cs" />
     <Compile Include="Modules\Default\EnList\EnListColumns.cs" />
     <Compile Include="Modules\Default\EnList\EnListForm.cs" />
+    <Compile Include="Modules\Default\News\NewsRow.cs" />
+    <Compile Include="Modules\Default\News\NewsRepository.cs" />
+    <Compile Include="Modules\Default\News\NewsEndpoint.cs" />
+    <Compile Include="Modules\Default\News\NewsPage.cs" />
+    <Compile Include="Modules\Default\News\NewsColumns.cs" />
+    <Compile Include="Modules\Default\News\NewsForm.cs" />
+    <Compile Include="Modules\Default\DefaultNavigation.cs" />
+    <Compile Include="Modules\Default\NewsCategory\NewsCategoryRow.cs" />
+    <Compile Include="Modules\Default\NewsCategory\NewsCategoryRepository.cs" />
+    <Compile Include="Modules\Default\NewsCategory\NewsCategoryEndpoint.cs" />
+    <Compile Include="Modules\Default\NewsCategory\NewsCategoryPage.cs" />
+    <Compile Include="Modules\Default\NewsCategory\NewsCategoryColumns.cs" />
+    <Compile Include="Modules\Default\NewsCategory\NewsCategoryForm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

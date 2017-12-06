@@ -7401,3 +7401,30 @@ section.content > .s-DataGrid {
   font-style: italic;
   color: #966;
 }
+.s-Default-EnListDialog > .size {
+  width: 650px;
+}
+.s-Default-EnListDialog .caption {
+  width: 150px;
+}
+.s-Default-NewsDialog > .size {
+  width: 650px;
+}
+.s-Default-NewsDialog .caption {
+  width: 150px;
+}
+@media (min-width: 768px) {
+  .s-Default-NewsDialog .field.Title,
+  .s-Default-NewsDialog .field.CategoryId,
+  .s-Default-NewsDialog .field.SourceSite,
+  .s-Default-NewsDialog .field.CreateDate {
+    flex: auto;
+    min-width: 50%;
+  }
+}
+.s-Default-NewsCategoryDialog > .size {
+  width: 650px;
+}
+.s-Default-NewsCategoryDialog .caption {
+  width: 150px;
+}

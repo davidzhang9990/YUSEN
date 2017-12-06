@@ -1,484 +1,5 @@
-﻿/// <reference types="jqueryui" />
-/// <reference types="jquery" />
-declare namespace YSerene.Membership {
-    class CreateEnListPanel extends Serenity.PropertyPanel<CreateEnListRequest, any> {
-        protected getFormKey(): string;
-        private form;
-        constructor(container: JQuery);
-    }
-}
-declare namespace YSerene.Membership {
-    class SignUpPanel extends Serenity.PropertyPanel<SignUpRequest, any> {
-        protected getFormKey(): string;
-        private form;
-        constructor(container: JQuery);
-    }
-}
-declare namespace YSerene.Membership {
-    class ResetPasswordPanel extends Serenity.PropertyPanel<ResetPasswordRequest, any> {
-        protected getFormKey(): string;
-        private form;
-        constructor(container: JQuery);
-    }
-}
-declare namespace YSerene.Membership {
-    class ForgotPasswordPanel extends Serenity.PropertyPanel<ForgotPasswordRequest, any> {
-        protected getFormKey(): string;
-        private form;
-        constructor(container: JQuery);
-    }
-}
-declare namespace YSerene.Membership {
-    class ChangePasswordPanel extends Serenity.PropertyPanel<ChangePasswordRequest, any> {
-        protected getFormKey(): string;
-        private form;
-        constructor(container: JQuery);
-    }
-}
-declare namespace YSerene.Default {
-    class EnListDialog extends Serenity.EntityDialog<EnListRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: EnListForm;
-        protected updateInterface(): void;
-    }
-}
-declare namespace YSerene.Default {
-    class EnListGrid extends Serenity.EntityGrid<EnListRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof EnListDialog;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-        getButtons(): any[];
-    }
-}
-declare namespace YSerene.LanguageList {
-    function getValue(): string[][];
-}
-declare namespace YSerene.ScriptInitialization {
-}
-declare namespace YSerene.Common {
-    class UserPreferenceStorage implements Serenity.SettingStorage {
-        getItem(key: string): string;
-        setItem(key: string, data: string): void;
-    }
-}
-declare var jsPDF: any;
-declare namespace YSerene.Common {
-    interface PdfExportOptions {
-        grid: Serenity.DataGrid<any, any>;
-        onViewSubmit: () => boolean;
-        title?: string;
-        hint?: string;
-        separator?: boolean;
-        reportTitle?: string;
-        titleTop?: number;
-        titleFontSize?: number;
-        fileName?: string;
-        pageNumbers?: boolean;
-        columnTitles?: {
-            [key: string]: string;
-        };
-        tableOptions?: jsPDF.AutoTableOptions;
-        output?: string;
-        autoPrint?: boolean;
-        printDateTimeHeader?: boolean;
-    }
-    namespace PdfExportHelper {
-        function exportToPdf(options: PdfExportOptions): void;
-        function createToolButton(options: PdfExportOptions): Serenity.ToolButton;
-    }
-}
-declare var jsPDF: any;
-declare namespace YSerene.Common {
-    class ReportDialog extends Serenity.TemplatedDialog<ReportDialogOptions> {
-        private report;
-        private propertyGrid;
-        constructor(options: ReportDialogOptions);
-        protected getDialogButtons(): any;
-        protected createPropertyGrid(): void;
-        protected loadReport(reportKey: string): void;
-        protected updateInterface(): void;
-        executeReport(target: string, ext: string, download: boolean): void;
-        getToolbarButtons(): {
-            title: string;
-            cssClass: string;
-            onClick: () => void;
-        }[];
-    }
-    interface ReportDialogOptions {
-        reportKey: string;
-    }
-}
-declare namespace YSerene.Common {
-    interface ReportExecuteOptions {
-        reportKey: string;
-        download?: boolean;
-        extension?: 'pdf' | 'htm' | 'html' | 'xlsx' | 'docx';
-        getParams?: () => any;
-        params?: {
-            [key: string]: any;
-        };
-        target?: string;
-    }
-    interface ReportButtonOptions extends ReportExecuteOptions {
-        title?: string;
-        cssClass?: string;
-        icon?: string;
-    }
-    namespace ReportHelper {
-        function createToolButton(options: ReportButtonOptions): Serenity.ToolButton;
-        function execute(options: ReportExecuteOptions): void;
-    }
-}
-declare var jsPDF: any;
-declare namespace YSerene.Common {
-    class ReportPage extends Serenity.Widget<any> {
-        private reportKey;
-        private propertyItems;
-        private propertyGrid;
-        constructor(element: JQuery);
-        protected updateMatchFlags(text: string): void;
-        protected categoryClick(e: any): void;
-        protected reportLinkClick(e: any): void;
-    }
-}
-declare namespace YSerene.Common {
-    class LanguageSelection extends Serenity.Widget<any> {
-        constructor(select: JQuery, currentLanguage: string);
-    }
-}
-declare namespace YSerene.Common {
-    class SidebarSearch extends Serenity.Widget<any> {
-        private menuUL;
-        constructor(input: JQuery, menuUL: JQuery);
-        protected updateMatchFlags(text: string): void;
-    }
-}
-declare namespace YSerene.Common {
-    class ThemeSelection extends Serenity.Widget<any> {
-        constructor(select: JQuery);
-        protected getCurrentTheme(): string;
-    }
-}
-declare namespace YSerene {
-    class BasicProgressDialog extends Serenity.TemplatedDialog<any> {
-        constructor();
-        cancelled: boolean;
-        max: number;
-        value: number;
-        title: string;
-        cancelTitle: string;
-        getDialogOptions(): JQueryUI.DialogOptions;
-        initDialog(): void;
-        getTemplate(): string;
-    }
-}
-declare namespace YSerene.Common {
-    class BulkServiceAction {
-        protected keys: string[];
-        protected queue: string[];
-        protected queueIndex: number;
-        protected progressDialog: BasicProgressDialog;
-        protected pendingRequests: number;
-        protected completedRequests: number;
-        protected errorByKey: Q.Dictionary<Serenity.ServiceError>;
-        private successCount;
-        private errorCount;
-        done: () => void;
-        protected createProgressDialog(): void;
-        protected getConfirmationFormat(): string;
-        protected getConfirmationMessage(targetCount: any): string;
-        protected confirm(targetCount: any, action: any): void;
-        protected getNothingToProcessMessage(): string;
-        protected nothingToProcess(): void;
-        protected getParallelRequests(): number;
-        protected getBatchSize(): number;
-        protected startParallelExecution(): void;
-        protected serviceCallCleanup(): void;
-        protected executeForBatch(batch: string[]): void;
-        protected executeNextBatch(): void;
-        protected getAllHadErrorsFormat(): string;
-        protected showAllHadErrors(): void;
-        protected getSomeHadErrorsFormat(): string;
-        protected showSomeHadErrors(): void;
-        protected getAllSuccessFormat(): string;
-        protected showAllSuccess(): void;
-        protected showResults(): void;
-        execute(keys: string[]): void;
-        get_successCount(): any;
-        set_successCount(value: number): void;
-        get_errorCount(): any;
-        set_errorCount(value: number): void;
-    }
-}
-declare namespace YSerene.DialogUtils {
-    function pendingChangesConfirmation(element: JQuery, hasPendingChanges: () => boolean): void;
-}
-declare namespace YSerene.Common {
-    class EnumSelectFormatter implements Slick.Formatter {
-        constructor();
-        format(ctx: Slick.FormatterContext): string;
-        enumKey: string;
-        allowClear: boolean;
-        emptyItemText: string;
-    }
-}
-declare namespace YSerene.Common {
-    interface ExcelExportOptions {
-        grid: Serenity.DataGrid<any, any>;
-        service: string;
-        onViewSubmit: () => boolean;
-        title?: string;
-        hint?: string;
-        separator?: boolean;
-    }
-    namespace ExcelExportHelper {
-        function createToolButton(options: ExcelExportOptions): Serenity.ToolButton;
-    }
-}
-declare namespace YSerene.Common {
-    class GridEditorBase<TEntity> extends Serenity.EntityGrid<TEntity, any> implements Serenity.IGetEditValue, Serenity.ISetEditValue {
-        protected getIdProperty(): string;
-        protected nextId: number;
-        constructor(container: JQuery);
-        protected id(entity: TEntity): any;
-        protected getNextId(): string;
-        protected setNewId(entity: TEntity): void;
-        protected save(opt: Serenity.ServiceOptions<any>, callback: (r: Serenity.ServiceResponse) => void): void;
-        protected deleteEntity(id: number): boolean;
-        protected validateEntity(row: TEntity, id: number): boolean;
-        protected setEntities(items: TEntity[]): void;
-        protected getNewEntity(): TEntity;
-        protected getButtons(): Serenity.ToolButton[];
-        protected editItem(entityOrId: any): void;
-        getEditValue(property: any, target: any): void;
-        setEditValue(source: any, property: any): void;
-        value: TEntity[];
-        protected getGridCanLoad(): boolean;
-        protected usePager(): boolean;
-        protected getInitialTitle(): any;
-        protected createQuickSearchInput(): void;
-    }
-}
-declare namespace YSerene.Common {
-    class GridEditorDialog<TEntity> extends Serenity.EntityDialog<TEntity, any> {
-        protected getIdProperty(): string;
-        onSave: (options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void) => void;
-        onDelete: (options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void) => void;
-        destroy(): void;
-        protected updateInterface(): void;
-        protected saveHandler(options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void): void;
-        protected deleteHandler(options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void): void;
-    }
-}
-declare namespace YSerene {
-    /**
-     * This is an editor widget but it only displays a text, not edits it.
-     *
-     */
-    class StaticTextBlock extends Serenity.Widget<StaticTextBlockOptions> implements Serenity.ISetEditValue {
-        private value;
-        constructor(container: JQuery, options: StaticTextBlockOptions);
-        private updateElementContent();
-        /**
-         * By implementing ISetEditValue interface, we allow this editor to display its field value.
-         * But only do this when our text content is not explicitly set in options
-         */
-        setEditValue(source: any, property: Serenity.PropertyItem): void;
-    }
-    interface StaticTextBlockOptions {
-        text: string;
-        isHtml: boolean;
-        isLocalText: boolean;
-        hideLabel: boolean;
-    }
-}
-declare namespace YSerene.Administration {
-    class RoleCheckEditor extends Serenity.CheckTreeEditor<Serenity.CheckTreeItem<any>, any> {
-        private searchText;
-        constructor(div: JQuery);
-        protected createToolbarExtensions(): void;
-        protected getButtons(): any[];
-        protected getTreeItems(): Serenity.CheckTreeItem<any>[];
-        protected onViewFilter(item: any): boolean;
-    }
-}
-declare namespace YSerene.Administration {
-    class UserRoleDialog extends Serenity.TemplatedDialog<UserRoleDialogOptions> {
-        private permissions;
-        constructor(opt: UserRoleDialogOptions);
-        protected getDialogOptions(): JQueryUI.DialogOptions;
-        protected getTemplate(): string;
-    }
-    interface UserRoleDialogOptions {
-        userID: number;
-        username: string;
-    }
-}
-declare namespace YSerene.Administration {
-    class PermissionCheckEditor extends Serenity.DataGrid<PermissionCheckItem, PermissionCheckEditorOptions> {
-        protected getIdProperty(): string;
-        private searchText;
-        private byParentKey;
-        constructor(container: JQuery, opt: PermissionCheckEditorOptions);
-        private getItemGrantRevokeClass(item, grant);
-        private roleOrImplicit(key);
-        private getItemEffectiveClass(item);
-        protected getColumns(): Slick.Column[];
-        setItems(items: PermissionCheckItem[]): void;
-        protected onViewSubmit(): boolean;
-        protected onViewFilter(item: PermissionCheckItem): boolean;
-        private matchContains(item);
-        private getDescendants(item, excludeGroups);
-        protected onClick(e: any, row: any, cell: any): void;
-        private getParentKey(key);
-        protected getButtons(): Serenity.ToolButton[];
-        protected createToolbarExtensions(): void;
-        private getSortedGroupAndPermissionKeys(titleByKey);
-        value: UserPermissionRow[];
-        private _rolePermissions;
-        rolePermissions: string[];
-        private _implicitPermissions;
-        implicitPermissions: Q.Dictionary<string[]>;
-    }
-    interface PermissionCheckEditorOptions {
-        showRevoke?: boolean;
-    }
-    interface PermissionCheckItem {
-        ParentKey?: string;
-        Key?: string;
-        Title?: string;
-        IsGroup?: boolean;
-        GrantRevoke?: boolean;
-    }
-}
-declare namespace YSerene.Administration {
-    class UserPermissionDialog extends Serenity.TemplatedDialog<UserPermissionDialogOptions> {
-        private permissions;
-        constructor(opt: UserPermissionDialogOptions);
-        protected getDialogOptions(): JQueryUI.DialogOptions;
-        protected getTemplate(): string;
-    }
-    interface UserPermissionDialogOptions {
-        userID?: number;
-        username?: string;
-    }
-}
-declare namespace YSerene.Administration {
-    class UserDialog extends Serenity.EntityDialog<UserRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getIsActiveProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: UserForm;
-        constructor();
-        protected getToolbarButtons(): Serenity.ToolButton[];
-        protected updateInterface(): void;
-        protected afterLoadEntity(): void;
-    }
-}
-declare namespace YSerene.Administration {
-    class UserGrid extends Serenity.EntityGrid<UserRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof UserDialog;
-        protected getIdProperty(): string;
-        protected getIsActiveProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-        protected getDefaultSortBy(): string[];
-    }
-}
-declare namespace YSerene.Authorization {
-    let userDefinition: ScriptUserDefinition;
-    function hasPermission(permissionKey: string): boolean;
-}
-declare namespace YSerene.Administration {
-    class TranslationGrid extends Serenity.EntityGrid<TranslationItem, any> {
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        private hasChanges;
-        private searchText;
-        private sourceLanguage;
-        private targetLanguage;
-        private targetLanguageKey;
-        constructor(container: JQuery);
-        protected onClick(e: JQueryEventObject, row: number, cell: number): any;
-        protected getColumns(): Slick.Column[];
-        protected createToolbarExtensions(): void;
-        protected saveChanges(language: string): PromiseLike<any>;
-        protected onViewSubmit(): boolean;
-        protected getButtons(): Serenity.ToolButton[];
-        protected createQuickSearchInput(): void;
-        protected onViewFilter(item: TranslationItem): boolean;
-        protected usePager(): boolean;
-    }
-}
-declare namespace YSerene.Administration {
-    class RolePermissionDialog extends Serenity.TemplatedDialog<RolePermissionDialogOptions> {
-        private permissions;
-        constructor(opt: RolePermissionDialogOptions);
-        protected getDialogOptions(): JQueryUI.DialogOptions;
-        protected getTemplate(): string;
-    }
-    interface RolePermissionDialogOptions {
-        roleID?: number;
-        title?: string;
-    }
-}
-declare namespace YSerene.Administration {
-    class RoleDialog extends Serenity.EntityDialog<RoleRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: RoleForm;
-        protected getToolbarButtons(): Serenity.ToolButton[];
-        protected updateInterface(): void;
-    }
-}
-declare namespace YSerene.Administration {
-    class RoleGrid extends Serenity.EntityGrid<RoleRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof RoleDialog;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-        protected getDefaultSortBy(): string[];
-    }
-}
-declare namespace YSerene.Administration {
-    class LanguageDialog extends Serenity.EntityDialog<LanguageRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: LanguageForm;
-    }
-}
-declare namespace YSerene.Administration {
-    class LanguageGrid extends Serenity.EntityGrid<LanguageRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof LanguageDialog;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-        protected getDefaultSortBy(): string[];
-    }
-}
+﻿/// <reference types="jquery" />
+/// <reference types="jqueryui" />
 declare namespace YSerene.Administration {
 }
 declare namespace YSerene.Administration {
@@ -959,6 +480,128 @@ declare namespace YSerene.Default {
         }
     }
 }
+declare namespace YSerene.Default {
+}
+declare namespace YSerene.Default {
+    class NewsCategoryForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface NewsCategoryForm {
+        CategoryName: Serenity.StringEditor;
+        Description: Serenity.TextAreaEditor;
+    }
+}
+declare namespace YSerene.Default {
+    interface NewsCategoryRow {
+        CategoryId?: number;
+        CategoryName?: string;
+        Description?: string;
+        InsertUserId?: number;
+        InsertDate?: string;
+        UpdateUserId?: number;
+        UpdateDate?: string;
+    }
+    namespace NewsCategoryRow {
+        const idProperty = "CategoryId";
+        const nameProperty = "CategoryName";
+        const localTextPrefix = "Default.NewsCategory";
+        const lookupKey = "Default.NewsCategory";
+        function getLookup(): Q.Lookup<NewsCategoryRow>;
+        namespace Fields {
+            const CategoryId: string;
+            const CategoryName: string;
+            const Description: string;
+            const InsertUserId: string;
+            const InsertDate: string;
+            const UpdateUserId: string;
+            const UpdateDate: string;
+        }
+    }
+}
+declare namespace YSerene.Default {
+    namespace NewsCategoryService {
+        const baseUrl = "Default/NewsCategory";
+        function Create(request: Serenity.SaveRequest<NewsCategoryRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<NewsCategoryRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<NewsCategoryRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<NewsCategoryRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace YSerene.Default {
+}
+declare namespace YSerene.Default {
+    class NewsForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface NewsForm {
+        Title: Serenity.StringEditor;
+        Image: Serenity.ImageUploadEditor;
+        CategoryId: Serenity.LookupEditor;
+        SourceSite: Serenity.StringEditor;
+        CreateDate: Serenity.DateEditor;
+        Description: Serenity.HtmlContentEditor;
+    }
+}
+declare namespace YSerene.Default {
+    interface NewsRow {
+        NewsId?: number;
+        Title?: string;
+        Image?: string;
+        CategoryId?: number;
+        SourceSite?: string;
+        CreateDate?: string;
+        Description?: string;
+        CategoryCategoryName?: string;
+        InsertUserId?: number;
+        InsertDate?: string;
+        UpdateUserId?: number;
+        UpdateDate?: string;
+    }
+    namespace NewsRow {
+        const idProperty = "NewsId";
+        const nameProperty = "Title";
+        const localTextPrefix = "Default.News";
+        namespace Fields {
+            const NewsId: string;
+            const Title: string;
+            const Image: string;
+            const CategoryId: string;
+            const SourceSite: string;
+            const CreateDate: string;
+            const Description: string;
+            const CategoryCategoryName: string;
+            const InsertUserId: string;
+            const InsertDate: string;
+            const UpdateUserId: string;
+            const UpdateDate: string;
+        }
+    }
+}
+declare namespace YSerene.Default {
+    namespace NewsService {
+        const baseUrl = "Default/News";
+        function Create(request: Serenity.SaveRequest<NewsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<NewsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<NewsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<NewsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
 declare namespace YSerene {
     interface ExcelImportRequest extends Serenity.ServiceRequest {
         FileName?: string;
@@ -1092,5 +735,524 @@ declare namespace YSerene {
         Permissions?: {
             [key: string]: boolean;
         };
+    }
+}
+declare namespace YSerene.Administration {
+    class LanguageDialog extends Serenity.EntityDialog<LanguageRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: LanguageForm;
+    }
+}
+declare namespace YSerene.Administration {
+    class LanguageGrid extends Serenity.EntityGrid<LanguageRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof LanguageDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        protected getDefaultSortBy(): string[];
+    }
+}
+declare namespace YSerene.Administration {
+    class RoleDialog extends Serenity.EntityDialog<RoleRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: RoleForm;
+        protected getToolbarButtons(): Serenity.ToolButton[];
+        protected updateInterface(): void;
+    }
+}
+declare namespace YSerene.Administration {
+    class RoleGrid extends Serenity.EntityGrid<RoleRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof RoleDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        protected getDefaultSortBy(): string[];
+    }
+}
+declare namespace YSerene.Administration {
+    class RolePermissionDialog extends Serenity.TemplatedDialog<RolePermissionDialogOptions> {
+        private permissions;
+        constructor(opt: RolePermissionDialogOptions);
+        protected getDialogOptions(): JQueryUI.DialogOptions;
+        protected getTemplate(): string;
+    }
+    interface RolePermissionDialogOptions {
+        roleID?: number;
+        title?: string;
+    }
+}
+declare namespace YSerene.Administration {
+    class TranslationGrid extends Serenity.EntityGrid<TranslationItem, any> {
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        private hasChanges;
+        private searchText;
+        private sourceLanguage;
+        private targetLanguage;
+        private targetLanguageKey;
+        constructor(container: JQuery);
+        protected onClick(e: JQueryEventObject, row: number, cell: number): any;
+        protected getColumns(): Slick.Column[];
+        protected createToolbarExtensions(): void;
+        protected saveChanges(language: string): PromiseLike<any>;
+        protected onViewSubmit(): boolean;
+        protected getButtons(): Serenity.ToolButton[];
+        protected createQuickSearchInput(): void;
+        protected onViewFilter(item: TranslationItem): boolean;
+        protected usePager(): boolean;
+    }
+}
+declare namespace YSerene.Authorization {
+    let userDefinition: ScriptUserDefinition;
+    function hasPermission(permissionKey: string): boolean;
+}
+declare namespace YSerene.Administration {
+    class UserDialog extends Serenity.EntityDialog<UserRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getIsActiveProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: UserForm;
+        constructor();
+        protected getToolbarButtons(): Serenity.ToolButton[];
+        protected updateInterface(): void;
+        protected afterLoadEntity(): void;
+    }
+}
+declare namespace YSerene.Administration {
+    class UserGrid extends Serenity.EntityGrid<UserRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof UserDialog;
+        protected getIdProperty(): string;
+        protected getIsActiveProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        protected getDefaultSortBy(): string[];
+    }
+}
+declare namespace YSerene.Administration {
+    class PermissionCheckEditor extends Serenity.DataGrid<PermissionCheckItem, PermissionCheckEditorOptions> {
+        protected getIdProperty(): string;
+        private searchText;
+        private byParentKey;
+        constructor(container: JQuery, opt: PermissionCheckEditorOptions);
+        private getItemGrantRevokeClass(item, grant);
+        private roleOrImplicit(key);
+        private getItemEffectiveClass(item);
+        protected getColumns(): Slick.Column[];
+        setItems(items: PermissionCheckItem[]): void;
+        protected onViewSubmit(): boolean;
+        protected onViewFilter(item: PermissionCheckItem): boolean;
+        private matchContains(item);
+        private getDescendants(item, excludeGroups);
+        protected onClick(e: any, row: any, cell: any): void;
+        private getParentKey(key);
+        protected getButtons(): Serenity.ToolButton[];
+        protected createToolbarExtensions(): void;
+        private getSortedGroupAndPermissionKeys(titleByKey);
+        value: UserPermissionRow[];
+        private _rolePermissions;
+        rolePermissions: string[];
+        private _implicitPermissions;
+        implicitPermissions: Q.Dictionary<string[]>;
+    }
+    interface PermissionCheckEditorOptions {
+        showRevoke?: boolean;
+    }
+    interface PermissionCheckItem {
+        ParentKey?: string;
+        Key?: string;
+        Title?: string;
+        IsGroup?: boolean;
+        GrantRevoke?: boolean;
+    }
+}
+declare namespace YSerene.Administration {
+    class UserPermissionDialog extends Serenity.TemplatedDialog<UserPermissionDialogOptions> {
+        private permissions;
+        constructor(opt: UserPermissionDialogOptions);
+        protected getDialogOptions(): JQueryUI.DialogOptions;
+        protected getTemplate(): string;
+    }
+    interface UserPermissionDialogOptions {
+        userID?: number;
+        username?: string;
+    }
+}
+declare namespace YSerene.Administration {
+    class RoleCheckEditor extends Serenity.CheckTreeEditor<Serenity.CheckTreeItem<any>, any> {
+        private searchText;
+        constructor(div: JQuery);
+        protected createToolbarExtensions(): void;
+        protected getButtons(): any[];
+        protected getTreeItems(): Serenity.CheckTreeItem<any>[];
+        protected onViewFilter(item: any): boolean;
+    }
+}
+declare namespace YSerene.Administration {
+    class UserRoleDialog extends Serenity.TemplatedDialog<UserRoleDialogOptions> {
+        private permissions;
+        constructor(opt: UserRoleDialogOptions);
+        protected getDialogOptions(): JQueryUI.DialogOptions;
+        protected getTemplate(): string;
+    }
+    interface UserRoleDialogOptions {
+        userID: number;
+        username: string;
+    }
+}
+declare namespace YSerene {
+    class BasicProgressDialog extends Serenity.TemplatedDialog<any> {
+        constructor();
+        cancelled: boolean;
+        max: number;
+        value: number;
+        title: string;
+        cancelTitle: string;
+        getDialogOptions(): JQueryUI.DialogOptions;
+        initDialog(): void;
+        getTemplate(): string;
+    }
+}
+declare namespace YSerene.Common {
+    class BulkServiceAction {
+        protected keys: string[];
+        protected queue: string[];
+        protected queueIndex: number;
+        protected progressDialog: BasicProgressDialog;
+        protected pendingRequests: number;
+        protected completedRequests: number;
+        protected errorByKey: Q.Dictionary<Serenity.ServiceError>;
+        private successCount;
+        private errorCount;
+        done: () => void;
+        protected createProgressDialog(): void;
+        protected getConfirmationFormat(): string;
+        protected getConfirmationMessage(targetCount: any): string;
+        protected confirm(targetCount: any, action: any): void;
+        protected getNothingToProcessMessage(): string;
+        protected nothingToProcess(): void;
+        protected getParallelRequests(): number;
+        protected getBatchSize(): number;
+        protected startParallelExecution(): void;
+        protected serviceCallCleanup(): void;
+        protected executeForBatch(batch: string[]): void;
+        protected executeNextBatch(): void;
+        protected getAllHadErrorsFormat(): string;
+        protected showAllHadErrors(): void;
+        protected getSomeHadErrorsFormat(): string;
+        protected showSomeHadErrors(): void;
+        protected getAllSuccessFormat(): string;
+        protected showAllSuccess(): void;
+        protected showResults(): void;
+        execute(keys: string[]): void;
+        get_successCount(): any;
+        set_successCount(value: number): void;
+        get_errorCount(): any;
+        set_errorCount(value: number): void;
+    }
+}
+declare namespace YSerene.DialogUtils {
+    function pendingChangesConfirmation(element: JQuery, hasPendingChanges: () => boolean): void;
+}
+declare namespace YSerene.Common {
+    class EnumSelectFormatter implements Slick.Formatter {
+        constructor();
+        format(ctx: Slick.FormatterContext): string;
+        enumKey: string;
+        allowClear: boolean;
+        emptyItemText: string;
+    }
+}
+declare namespace YSerene.Common {
+    interface ExcelExportOptions {
+        grid: Serenity.DataGrid<any, any>;
+        service: string;
+        onViewSubmit: () => boolean;
+        title?: string;
+        hint?: string;
+        separator?: boolean;
+    }
+    namespace ExcelExportHelper {
+        function createToolButton(options: ExcelExportOptions): Serenity.ToolButton;
+    }
+}
+declare namespace YSerene.Common {
+    class GridEditorBase<TEntity> extends Serenity.EntityGrid<TEntity, any> implements Serenity.IGetEditValue, Serenity.ISetEditValue {
+        protected getIdProperty(): string;
+        protected nextId: number;
+        constructor(container: JQuery);
+        protected id(entity: TEntity): any;
+        protected getNextId(): string;
+        protected setNewId(entity: TEntity): void;
+        protected save(opt: Serenity.ServiceOptions<any>, callback: (r: Serenity.ServiceResponse) => void): void;
+        protected deleteEntity(id: number): boolean;
+        protected validateEntity(row: TEntity, id: number): boolean;
+        protected setEntities(items: TEntity[]): void;
+        protected getNewEntity(): TEntity;
+        protected getButtons(): Serenity.ToolButton[];
+        protected editItem(entityOrId: any): void;
+        getEditValue(property: any, target: any): void;
+        setEditValue(source: any, property: any): void;
+        value: TEntity[];
+        protected getGridCanLoad(): boolean;
+        protected usePager(): boolean;
+        protected getInitialTitle(): any;
+        protected createQuickSearchInput(): void;
+    }
+}
+declare namespace YSerene.Common {
+    class GridEditorDialog<TEntity> extends Serenity.EntityDialog<TEntity, any> {
+        protected getIdProperty(): string;
+        onSave: (options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void) => void;
+        onDelete: (options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void) => void;
+        destroy(): void;
+        protected updateInterface(): void;
+        protected saveHandler(options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void): void;
+        protected deleteHandler(options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void): void;
+    }
+}
+declare namespace YSerene.LanguageList {
+    function getValue(): string[][];
+}
+declare namespace YSerene {
+    /**
+     * This is an editor widget but it only displays a text, not edits it.
+     *
+     */
+    class StaticTextBlock extends Serenity.Widget<StaticTextBlockOptions> implements Serenity.ISetEditValue {
+        private value;
+        constructor(container: JQuery, options: StaticTextBlockOptions);
+        private updateElementContent();
+        /**
+         * By implementing ISetEditValue interface, we allow this editor to display its field value.
+         * But only do this when our text content is not explicitly set in options
+         */
+        setEditValue(source: any, property: Serenity.PropertyItem): void;
+    }
+    interface StaticTextBlockOptions {
+        text: string;
+        isHtml: boolean;
+        isLocalText: boolean;
+        hideLabel: boolean;
+    }
+}
+declare namespace YSerene.Common {
+    class LanguageSelection extends Serenity.Widget<any> {
+        constructor(select: JQuery, currentLanguage: string);
+    }
+}
+declare namespace YSerene.Common {
+    class SidebarSearch extends Serenity.Widget<any> {
+        private menuUL;
+        constructor(input: JQuery, menuUL: JQuery);
+        protected updateMatchFlags(text: string): void;
+    }
+}
+declare namespace YSerene.Common {
+    class ThemeSelection extends Serenity.Widget<any> {
+        constructor(select: JQuery);
+        protected getCurrentTheme(): string;
+    }
+}
+declare var jsPDF: any;
+declare namespace YSerene.Common {
+    interface PdfExportOptions {
+        grid: Serenity.DataGrid<any, any>;
+        onViewSubmit: () => boolean;
+        title?: string;
+        hint?: string;
+        separator?: boolean;
+        reportTitle?: string;
+        titleTop?: number;
+        titleFontSize?: number;
+        fileName?: string;
+        pageNumbers?: boolean;
+        columnTitles?: {
+            [key: string]: string;
+        };
+        tableOptions?: jsPDF.AutoTableOptions;
+        output?: string;
+        autoPrint?: boolean;
+        printDateTimeHeader?: boolean;
+    }
+    namespace PdfExportHelper {
+        function exportToPdf(options: PdfExportOptions): void;
+        function createToolButton(options: PdfExportOptions): Serenity.ToolButton;
+    }
+}
+declare var jsPDF: any;
+declare namespace YSerene.Common {
+    class ReportDialog extends Serenity.TemplatedDialog<ReportDialogOptions> {
+        private report;
+        private propertyGrid;
+        constructor(options: ReportDialogOptions);
+        protected getDialogButtons(): any;
+        protected createPropertyGrid(): void;
+        protected loadReport(reportKey: string): void;
+        protected updateInterface(): void;
+        executeReport(target: string, ext: string, download: boolean): void;
+        getToolbarButtons(): {
+            title: string;
+            cssClass: string;
+            onClick: () => void;
+        }[];
+    }
+    interface ReportDialogOptions {
+        reportKey: string;
+    }
+}
+declare namespace YSerene.Common {
+    interface ReportExecuteOptions {
+        reportKey: string;
+        download?: boolean;
+        extension?: 'pdf' | 'htm' | 'html' | 'xlsx' | 'docx';
+        getParams?: () => any;
+        params?: {
+            [key: string]: any;
+        };
+        target?: string;
+    }
+    interface ReportButtonOptions extends ReportExecuteOptions {
+        title?: string;
+        cssClass?: string;
+        icon?: string;
+    }
+    namespace ReportHelper {
+        function createToolButton(options: ReportButtonOptions): Serenity.ToolButton;
+        function execute(options: ReportExecuteOptions): void;
+    }
+}
+declare var jsPDF: any;
+declare namespace YSerene.Common {
+    class ReportPage extends Serenity.Widget<any> {
+        private reportKey;
+        private propertyItems;
+        private propertyGrid;
+        constructor(element: JQuery);
+        protected updateMatchFlags(text: string): void;
+        protected categoryClick(e: any): void;
+        protected reportLinkClick(e: any): void;
+    }
+}
+declare namespace YSerene.ScriptInitialization {
+}
+declare namespace YSerene.Common {
+    class UserPreferenceStorage implements Serenity.SettingStorage {
+        getItem(key: string): string;
+        setItem(key: string, data: string): void;
+    }
+}
+declare namespace YSerene.Default {
+    class EnListDialog extends Serenity.EntityDialog<EnListRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: EnListForm;
+        protected updateInterface(): void;
+    }
+}
+declare namespace YSerene.Default {
+    class EnListGrid extends Serenity.EntityGrid<EnListRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof EnListDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        getButtons(): any[];
+    }
+}
+declare namespace YSerene.Default {
+    class NewsDialog extends Serenity.EntityDialog<NewsRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: NewsForm;
+    }
+}
+declare namespace YSerene.Default {
+    class NewsGrid extends Serenity.EntityGrid<NewsRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof NewsDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace YSerene.Default {
+    class NewsCategoryDialog extends Serenity.EntityDialog<NewsCategoryRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: NewsCategoryForm;
+    }
+}
+declare namespace YSerene.Default {
+    class NewsCategoryGrid extends Serenity.EntityGrid<NewsCategoryRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof NewsCategoryDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace YSerene.Membership {
+    class ChangePasswordPanel extends Serenity.PropertyPanel<ChangePasswordRequest, any> {
+        protected getFormKey(): string;
+        private form;
+        constructor(container: JQuery);
+    }
+}
+declare namespace YSerene.Membership {
+    class ForgotPasswordPanel extends Serenity.PropertyPanel<ForgotPasswordRequest, any> {
+        protected getFormKey(): string;
+        private form;
+        constructor(container: JQuery);
+    }
+}
+declare namespace YSerene.Membership {
+    class ResetPasswordPanel extends Serenity.PropertyPanel<ResetPasswordRequest, any> {
+        protected getFormKey(): string;
+        private form;
+        constructor(container: JQuery);
+    }
+}
+declare namespace YSerene.Membership {
+    class SignUpPanel extends Serenity.PropertyPanel<SignUpRequest, any> {
+        protected getFormKey(): string;
+        private form;
+        constructor(container: JQuery);
+    }
+}
+declare namespace YSerene.Membership {
+    class CreateEnListPanel extends Serenity.PropertyPanel<CreateEnListRequest, any> {
+        protected getFormKey(): string;
+        private form;
+        constructor(container: JQuery);
     }
 }
