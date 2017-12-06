@@ -1581,7 +1581,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DefaultDB\DefaultDB_20171129_202800_EnList.cs" />
-    <Compile Include="Modules\Administration\AdministrationNavigation.cs" />
     <Compile Include="Modules\Administration\Language\LanguageLookup.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionUpdateRequest.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionListResponse.cs" />
@@ -1704,7 +1703,6 @@
     <Compile Include="Modules\Default\EnList\EnListPage.cs" />
     <Compile Include="Modules\Default\EnList\EnListColumns.cs" />
     <Compile Include="Modules\Default\EnList\EnListForm.cs" />
-    <Compile Include="Modules\Default\DefaultNavigation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
