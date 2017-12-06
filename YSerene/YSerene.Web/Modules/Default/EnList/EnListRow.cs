@@ -1,4 +1,7 @@
 ﻿
+using YSerene.Administration.Entities;
+using YSerene.Common;
+
 namespace YSerene.Default.Entities
 {
     using Serenity;
@@ -10,10 +13,10 @@ namespace YSerene.Default.Entities
     using System.IO;
 
     [ConnectionKey("Default"), TableName("[dbo].[EnList]")]
-    [DisplayName("En List"), InstanceName("En List"), TwoLevelCached]
+    [DisplayName("报名列表"), InstanceName("报名"), TwoLevelCached]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
-    public sealed class EnListRow : Row, IIdRow, INameRow
+    public sealed class EnListRow : LoggingRow, IIdRow, INameRow
     {
         [DisplayName("En Id"), Identity]
         public Int64? EnId
@@ -22,35 +25,35 @@ namespace YSerene.Default.Entities
             set { Fields.EnId[this] = value; }
         }
 
-        [DisplayName("Parent Name"), Size(50), NotNull, QuickSearch]
+        [DisplayName("家长姓名"), Size(50), NotNull, QuickSearch]
         public String ParentName
         {
             get { return Fields.ParentName[this]; }
             set { Fields.ParentName[this] = value; }
         }
 
-        [DisplayName("Mobile"), Size(11), NotNull]
+        [DisplayName("联系方式"), Size(11), NotNull, QuickSearch]
         public String Mobile
         {
             get { return Fields.Mobile[this]; }
             set { Fields.Mobile[this] = value; }
         }
 
-        [DisplayName("Child Name"), Size(50), NotNull]
+        [DisplayName("小孩姓名"), Size(50), NotNull, QuickSearch]
         public String ChildName
         {
             get { return Fields.ChildName[this]; }
             set { Fields.ChildName[this] = value; }
         }
 
-        [DisplayName("Sex"), NotNull]
-        public Int32? Sex
+        [DisplayName("性别"), NotNull]
+        public MemberSex? Sex
         {
-            get { return Fields.Sex[this]; }
-            set { Fields.Sex[this] = value; }
+            get { return (MemberSex?)Fields.Sex[this]; }
+            set { Fields.Sex[this] = (Int16?)value; }
         }
 
-        [DisplayName("Birthday"), NotNull]
+        [DisplayName("出生日期"), NotNull]
         public DateTime? Birthday
         {
             get { return Fields.Birthday[this]; }
@@ -74,7 +77,7 @@ namespace YSerene.Default.Entities
         {
         }
 
-        public class RowFields : RowFieldsBase
+        public class RowFields : LoggingRowFields
         {
             public Int64Field EnId;
             public StringField ParentName;

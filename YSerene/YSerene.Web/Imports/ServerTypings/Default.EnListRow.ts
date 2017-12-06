@@ -4,8 +4,12 @@
         ParentName?: string;
         Mobile?: string;
         ChildName?: string;
-        Sex?: number;
+        Sex?: Common.MemberSex;
         Birthday?: string;
+        InsertUserId?: number;
+        InsertDate?: string;
+        UpdateUserId?: number;
+        UpdateDate?: string;
     }
 
     export namespace EnListRow {
@@ -20,6 +24,10 @@
             export declare const ChildName: string;
             export declare const Sex: string;
             export declare const Birthday: string;
+            export declare const InsertUserId: string;
+            export declare const InsertDate: string;
+            export declare const UpdateUserId: string;
+            export declare const UpdateDate: string;
         }
 
         [
@@ -28,7 +36,11 @@
             'Mobile', 
             'ChildName', 
             'Sex', 
-            'Birthday'
+            'Birthday', 
+            'InsertUserId', 
+            'InsertDate', 
+            'UpdateUserId', 
+            'UpdateDate'
         ].forEach(x => (<any>Fields)[x] = x);
     }
 }

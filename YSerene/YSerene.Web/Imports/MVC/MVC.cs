@@ -86,10 +86,15 @@ namespace MVC
                     public const string AccountSignUp = "~/Modules/Membership/Account/SignUp/AccountSignUp.cshtml";
                     public const string AccountSignUp_AdminLTE = "~/Modules/Membership/Account/SignUp/AccountSignUp.AdminLTE.cshtml";
                 }
+
             }
 
             public static class Web
             {
+                public static class CreateEnList
+                {
+                    public const string CreateEnList_ = "~/Modules/Membership/Web/CreateEnList/CreateEnList.cshtml";
+                }
                 public const string Index = "~/Modules/Membership/Web/Index.cshtml";
             }
         }

@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = Texts.Forms.Membership.SignUp.FormTitle;
+    ViewData["PageId"] = "CreateEnList";
+    Layout = MVC.Views.Shared._LayoutNoNavigation;
+}
+
+<script id="Template_Membership_CreateEnListPanel" type="text/template">
+    <div>
+        <h3 class="page-title">注册报名</h3>
+        <p class="form-info">请输入下面的信息..</p>
+        <form id="~_Form" action="">
+            <div class="s-Form">
+                <div class="fieldset">
+                    <div id="~_PropertyGrid"></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="buttons">
+                    <button id="~_SubmitButton" type="submit" class="btn btn-primary">
+                        @Texts.Forms.Membership.SignUp.SubmitButton
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</script>
+
+<div class="page-content">
+    <div id="CreateEnListPanel">
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function() {
+    new YSerene.Membership.CreateEnListPanel($('#CreateEnListPanel')).init();
+});
+</script>

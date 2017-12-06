@@ -815,6 +815,7 @@
     <Content Include="Content\toastr.less" />
     <Content Include="wkhtmltopdf-license.txt" />
     <Content Include="Modules\Membership\Web\Index.cshtml" />
+    <Content Include="Modules\Membership\Web\CreateEnList\CreateEnList.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -1297,10 +1298,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="Imports\ServerTypings\Common.MemberSex.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Default.EnListColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Membership.CreateEnListRequest.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Membership.EnListForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Helpers\StaticTextBlock.ts" />
+    <TypeScriptCompile Include="Modules\Membership\Web\CreateEnList\CreateEnListPanel.ts" />
     <TypeScriptCompile Include="node_modules\%40types\jquery\index.d.ts" />
     <TypeScriptCompile Include="node_modules\%40types\jqueryui\index.d.ts" />
     <TypeScriptCompile Include="node_modules\%40types\jquery.blockui\index.d.ts" />
@@ -1580,6 +1591,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\DefaultDB\DefaultDB_20171206_120300_NewsCategory.cs" />
     <Compile Include="Migrations\DefaultDB\DefaultDB_20171129_202800_EnList.cs" />
     <Compile Include="Modules\Administration\Language\LanguageLookup.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionUpdateRequest.cs" />
@@ -1658,6 +1670,10 @@
     <Compile Include="Modules\Common\UserPreference\UserPreferenceRow.cs" />
     <Compile Include="Modules\Common\Helpers\GetNextNumberHelper.cs" />
     <Compile Include="Modules\Common\Helpers\GetNextNumberRequest.cs" />
+    <Compile Include="Modules\Common\MeberSex.cs" />
+    <Compile Include="Modules\Membership\Web\CreateEnList\EnListRequest.cs" />
+    <Compile Include="Modules\Membership\Web\CreateEnList\EnListForm.cs" />
+    <Compile Include="Modules\Membership\Web\CreateEnList\WebPage.CreateEnList.cs" />
     <Compile Include="Modules\Membership\Web\WebPage.cs" />
     <Compile Include="Modules\Texts.cs" />
     <Compile Include="Modules\Membership\Account\AccountPage.cs" />

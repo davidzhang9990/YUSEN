@@ -12,5 +12,13 @@ namespace YSerene.Default {
 
         protected form = new EnListForm(this.idPrefix);
 
+        //隐藏保存按钮
+        protected updateInterface(): void {
+            this.toolbar.findButton('apply-changes-button').hide();
+            this.toolbar.findButton('save-and-close-button').hide();
+            this.toolbar.findButton('undo-delete-button').hide();
+            this.toolbar.findButton('localization-button').hide();
+            this.toolbar.findButton('clone-button').hide();
+        }
     }
 }

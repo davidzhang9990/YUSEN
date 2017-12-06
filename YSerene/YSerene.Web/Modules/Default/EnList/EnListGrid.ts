@@ -12,5 +12,14 @@ namespace YSerene.Default {
         constructor(container: JQuery) {
             super(container);
         }
+
+        //设置页面操作按钮
+        public getButtons() {
+            return [];
+        }
+        //控制列属性
+//        public getColumns() {
+//            return [];
+//        }
     }
 }
