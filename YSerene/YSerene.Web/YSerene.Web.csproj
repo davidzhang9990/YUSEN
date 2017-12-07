@@ -1477,9 +1477,6 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Membership.EnListForm.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Imports\ServerTypings\Membership.JoinRequest.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Helpers\StaticTextBlock.ts" />
     <TypeScriptCompile Include="Modules\Membership\Web\CreateEnList\CreateEnListPanel.ts" />
     <TypeScriptCompile Include="node_modules\%40types\jquery\index.d.ts" />
@@ -1868,7 +1865,6 @@
     <Compile Include="Modules\Membership\Web\CreateEnList\EnListRequest.cs" />
     <Compile Include="Modules\Membership\Web\CreateEnList\EnListForm.cs" />
     <Compile Include="Modules\Membership\Web\CreateEnList\WebPage.CreateEnList.cs" />
-    <Compile Include="Modules\Membership\Web\JoinRequest.cs" />
     <Compile Include="Modules\Membership\Web\NewsListModel.cs" />
     <Compile Include="Modules\Membership\Web\NewsCategoryModel.cs" />
     <Compile Include="Modules\Membership\Web\WebPage.cs" />
