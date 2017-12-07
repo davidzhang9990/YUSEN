@@ -99,12 +99,18 @@ namespace YSerene.Membership.Pages
             }
         }
 
-        [HttpGet]
-        public ActionResult CreateJoinUs(string parentName, string mobile, string childName, int sex, string birthday)
+        [HttpPost]
+        public ActionResult CreateJoinUs(JoinRequest request)
         {
             using (var connection = SqlConnections.NewByKey("Default"))
             using (var uow = new UnitOfWork(connection))
             {
+                var parentName = request.ParentName.TrimToEmpty();
+                var mobile = request.Mobile.TrimToEmpty();
+                var childName = request.ChildName.TrimToEmpty();
+                var sex = request.Sex;
+                var birthday = request.Birthday;
+
                 connection.InsertAndGetID(new EnListRow
                 {
                     ParentName = parentName,
