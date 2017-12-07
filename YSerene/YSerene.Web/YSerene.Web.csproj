@@ -1865,6 +1865,7 @@
     <Compile Include="Modules\Membership\Web\CreateEnList\EnListRequest.cs" />
     <Compile Include="Modules\Membership\Web\CreateEnList\EnListForm.cs" />
     <Compile Include="Modules\Membership\Web\CreateEnList\WebPage.CreateEnList.cs" />
+    <Compile Include="Modules\Membership\Web\JoinRequest.cs" />
     <Compile Include="Modules\Membership\Web\NewsListModel.cs" />
     <Compile Include="Modules\Membership\Web\NewsCategoryModel.cs" />
     <Compile Include="Modules\Membership\Web\WebPage.cs" />
