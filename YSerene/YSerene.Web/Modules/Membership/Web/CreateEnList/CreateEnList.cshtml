@@ -1,36 +1,35 @@
 ﻿@{
     ViewData["Title"] = Texts.Forms.Membership.SignUp.FormTitle;
     ViewData["PageId"] = "CreateEnList";
-    Layout = MVC.Views.Shared._LayoutNoNavigation;
+    Layout = MVC.Views.Shared._NewLayoutNoNavigation;
 }
-
 <script id="Template_Membership_CreateEnListPanel" type="text/template">
-    <div>
-        <h3 class="page-title">注册报名</h3>
-        <p class="form-info">请输入下面的信息..</p>
-        <form id="~_Form" action="">
-            <div class="s-Form">
-                <div class="fieldset">
-                    <div id="~_PropertyGrid"></div>
-                    <div class="clear"></div>
-                </div>
-                <div class="buttons">
-                    <button id="~_SubmitButton" type="submit" class="btn btn-primary">
-                        @Texts.Forms.Membership.SignUp.SubmitButton
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
+    <form class="form-horizontal" role="form" id="~_Form">
+        <div class="fieldset">
+            <div id="~_PropertyGrid"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="buttons">
+            <button id="~_SubmitButton" type="button" class="btn btn-warning" style="position:relative; margin-top:90px; right:15%">请确认提交</button>
+        </div>
+    </form>
 </script>
-
-<div class="page-content">
-    <div id="CreateEnListPanel">
+<section class="page-title center">
+    <div class="container">
+        <h2>加入育森</h2>
+        <ul>
+            <li><a href="~/">首页</a></li>
+            <li><a href="javascript:;">加入育森</a></li>
+        </ul>
     </div>
-</div>
+</section>
+<section class="about" style="background: url(~/images/overly/gallery.png)">
+    <div id="CreateEnListPanel" class="container" style="height:480px; width:60%; border:2px #CCCCCC solid;">
+    </div>
+</section>
 
 <script type="text/javascript">
-$(function() {
-    new YSerene.Membership.CreateEnListPanel($('#CreateEnListPanel')).init();
-});
+    $(function () {
+        new YSerene.Membership.CreateEnListPanel($('#CreateEnListPanel')).init();
+    });
 </script>

@@ -1,40 +1,125 @@
-﻿@using System.Activities.Statements
-
-@{
-    ViewData["Title"] = "Index";
-    ViewData["PageId"] = "Index";
+﻿@{
+    ViewData["Title"] = "NewsList";
+    ViewData["PageId"] = "NewsList";
     Layout = MVC.Views.Shared._NewLayout;
 }
 
-<h1>Index test page..</h1>
-@*<div>
-       pagecount:@Model.PageCount
+<section class="page-title center">
+    <div class="container">
+        <h2>育森新闻</h2>
+        <ul>
+            <li><a href="~/">首页</a></li>
+            <li><a href="javascript:;">新闻活动</a></li>
+        </ul>
     </div>
+</section>
+<section class="event style-2">
+    <div class="container">
+        <div class="row" id="newpanel">
+            <div class="col-md-4 col-sm-6 col-xsw-12 item wow fadeIn" data-wow-duration="2s" data-wow-delay="0.5s" data-wow-offset="0" style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;">
+                <div class="img-holder">
+                    <figure><a href="#"><img src="images/resource/7.jpg" alt="Awesome Image"></a></figure>
+                    <div class="content bg-color-1">
+                        <div class="inner-box">
+                            <div class="btn-box">
+                                <div class="count">10</div>
+                                <div class="month">2017-11</div>
+                            </div>
 
-    @if (@Model.PageCount > 0)
-            {
-                    <a href="~/NewsList?page=@Model.PageCount"></a><<a href="~/NewsList?page=@Model.PageCount"></a>
-             }
-         @foreach (var news in Model.NewsList)
-              {
-                   <div><div>
-                            编号：@news.NewsId
-                          </div></div>
-                      <img src="~/upload/@news.Image" width="100" height="100" /><img src="~/upload/@news.Image" width="100" height="100" />
-                       <div><div>
-                               <a href="~/NewsDetail?cateId=@news.NewsId">@news.Title</a><a href="~/NewsDetail?cateId=@news.NewsId"></a>
-                          </div>
+                            <p><span class="fa fa-map-marker"></span> Etonkids&KA发起中国首个儿童公益爱心平台—反暴力教育联盟</p>
+                        </div>
                     </div>
-                      <div><div>
-                               @Html.Raw(news.Description)
-                          </div>
-                    </div>
-                   }*@
-<div id="newpanel">
 
-</div>
-<input type="hidden" id="pagecount" value="0">
-<a href="javascript:;" onclick="initList();" id="more_button"><i class="fa fa-angle-right"></i>&nbsp;更多》</a>
+                </div>
+
+            </div>
+            <div class="col-md-4 col-sm-6 col-xsw-12 item wow fadeIn" data-wow-duration="2s" data-wow-delay="0.6s" data-wow-offset="0" style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;">
+                <div class="img-holder">
+                    <figure><a href="#"><img src="images/resource/8.jpg" alt="Awesome Image"></a></figure>
+                    <div class="content bg-color-2">
+                        <div class="inner-box">
+                            <div class="btn-box">
+                                <div class="count">31</div>
+                                <div class="month">2017-10</div>
+                            </div>
+
+                            <p><span class="fa fa-map-marker"></span> Etonkids与京东集团正式签约，携手打造国际旗舰幼儿园</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-4 col-sm-6 col-xsw-12 item wow fadeIn" data-wow-duration="2s" data-wow-delay="0.7s" data-wow-offset="0" style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;">
+                <div class="img-holder">
+                    <figure><a href="#"><img src="images/resource/9.jpg" alt="Awesome Image"></a></figure>
+                    <div class="content bg-color-3">
+                        <div class="inner-box">
+                            <div class="btn-box">
+                                <div class="count">11</div>
+                                <div class="month">2017-8</div>
+                            </div>
+                            <p><span class="fa fa-map-marker"></span>打造专业教师团队，成就优质幼教平台</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xsw-12 item wow fadeIn" data-wow-duration="2s" data-wow-delay="0.5s" data-wow-offset="0" style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;">
+                <div class="img-holder">
+                    <figure><a href="#"><img src="images/resource/6.jpg" alt="Awesome Image"></a></figure>
+                    <div class="content bg-color-1">
+                        <div class="inner-box">
+                            <div class="btn-box">
+                                <div class="count">11</div>
+                                <div class="month">2017-8</div>
+                            </div>
+                            <p><span class="fa fa-map-marker"></span> 幼儿教育：<br>0-3岁是不教的教育</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-4 col-sm-6 col-xsw-12 item wow fadeIn" data-wow-duration="2s" data-wow-delay="0.6s" data-wow-offset="0" style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;">
+                <div class="img-holder">
+                    <figure><a href="#"><img src="images/resource/5.jpg" alt="Awesome Image"></a></figure>
+                    <div class="content bg-color-2">
+                        <div class="inner-box">
+                            <div class="btn-box">
+                                <div class="count">7</div>
+                                <div class="month">2017-7</div>
+                            </div>
+                            <p><span class="fa fa-map-marker"></span>感恩有你、筑造未来：迎接孩子人生中的第一次毕业典礼</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-4 col-sm-6 col-xsw-12 item wow fadeIn" data-wow-duration="2s" data-wow-delay="0.7s" data-wow-offset="0" style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;">
+                <div class="img-holder">
+                    <figure><a href="#"><img src="images/resource/10.jpg" alt="Awesome Image"></a></figure>
+                    <div class="content bg-color-3">
+                        <div class="inner-box">
+                            <div class="btn-box">
+                                <div class="count">24</div>
+                                <div class="month">2017-1</div>
+                            </div>
+                            <p><span class="fa fa-map-marker"></span> 2017鸡年新春，伊顿萌娃们向您献上诚挚的新年祝福！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="link-btn center" id="more_button">
+            <a href="javascript:;" onclick="initList();" class="theme-btn btn-style-one">更多</a>
+        </div>
+        <input type="hidden" id="pagecount" value="0">
+    </div>
+</section>
 <script src="~/Scripts/jquery-3.1.1.min.js"></script>
 <script>
     $(document).ready(function () {
@@ -49,14 +134,49 @@
             var data = eval("(" + result + ")");
             var $html = "";
             for (var i in data.rows) {
-                $html += "编号：" + data.rows[i].NewsId + "<br/>";
-                $html += "图片：<img src=\"/upload/" + data.rows[i].Image + "\" width=\"100\" height=\"100\" /><br/>";
-                $html += "标题：" + data.rows[i].Title + "<br/>";
-                $html += "明细：" + data.rows[i].Description + "<br/>";
+                var date = new Date(data.rows[i].CreateDate);
+                $html += "<div class=\"col-md-4 col-sm-6 col-xsw-12 item wow fadeIn\" data-wow-duration=\"2s\" data-wow-delay=\"0.7s\" data-wow-offset=\"0\" style=\"visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;\">";
+                $html += "<div class=\"img-holder\">";
+                $html += "<figure><a href=\"javascript:;\"><img src=\"/upload/" + data.rows[i].Image + "\" alt=\"" + data.rows[i].Title + "\"></a></figure>";
+                $html += "<div class=\"content bg-color-3\">";
+                $html += "<div class=\"inner-box\"><div class=\"btn-box\"><div class=\"count\">" + date.getDate() + "</div>";
+                $html += "<div class=\"month\">" + date.getFullYear() + '-' + (date.getMonth() + 1) + "</div></div>";
+                $html += "<p><span class=\"fa fa-map-marker\"></span> " + data.rows[i].Title + "</p>";
+                $html += "</div></div></div></div>";
             }
             $("#newpanel").html($html);
             $("#pagecount").val(data.page);
-            if (data.page * 2 >= data.total) $("#more_button").hide();
+            if (data.page * data.pagesize >= data.total) $("#more_button").hide();
         });
     }
 </script>
+@*<div>
+           pagecount:@Model.PageCount
+        </div>
+
+        @if (@Model.PageCount > 0)
+                {
+                        <a href="~/NewsList?page=@Model.PageCount"></a><<a href="~/NewsList?page=@Model.PageCount"></a>
+                 }
+             @foreach (var news in Model.NewsList)
+                  {
+                       <div><div>
+                                编号：@news.NewsId
+                              </div></div>
+                          <img src="~/upload/@news.Image" width="100" height="100" /><img src="~/upload/@news.Image" width="100" height="100" />
+                           <div><div>
+                                   <a href="~/NewsDetail?cateId=@news.NewsId">@news.Title</a><a href="~/NewsDetail?cateId=@news.NewsId"></a>
+                              </div>
+                        </div>
+                          <div><div>
+                                   @Html.Raw(news.Description)
+                              </div>
+                        </div>
+                       }
+    <div id="newpanel">
+
+    </div>
+
+    <a href="javascript:;" onclick="initList();" id="more_button"><i class="fa fa-angle-right"></i>&nbsp;更多》</a>
+
+*@

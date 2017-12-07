@@ -1,0 +1,137 @@
+﻿@using System.Activities.Statements
+@{
+    ViewData["Title"] = "JoinUs";
+    ViewData["PageId"] = "JoinUs";
+    Layout = MVC.Views.Shared._NewLayout;
+}
+
+<link rel="stylesheet" href="~/Scripts/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css">
+@Html.AntiForgeryToken()
+<section class="page-title center">
+    <div class="container">
+        <h2>加入育森</h2>
+        <ul>
+            <li><a href="~/">首页</a></li>
+            <li><a href="javascript:;">加入育森</a></li>
+        </ul>
+    </div>
+</section>
+<section class="about" style="background:url(~/images/overly/gallery.png)">
+    <div class="container" style="height:480px; width:60%; border:2px #CCCCCC solid;">
+        <form class="form-horizontal" role="form">
+            <fieldset>
+                <div class="section-title" style="left:37%">
+                    <h3>请填写<span>报名信息</span> </h3>
+                </div>
+                <div class="form-group">
+                    <label for="parentName" class="col-sm-2 control-label" style="left:20%">家长姓名:</label>
+                    <div class="col-sm-4" style="left:20%">
+                        <input type="text" class="form-control" id="parentName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="mobile" class="col-sm-2 control-label" style="left:20%">联系电话:</label>
+                    <div class="col-sm-4" style="left:20%">
+                        <input type="text" class="form-control" id="mobile" maxlength="11">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="childName" class="col-sm-2 control-label" style="left:20%">幼儿姓名:</label>
+                    <div class="col-sm-4" style="left:20%">
+                        <input type="text" class="form-control" id="childName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="birthday" class="col-sm-2 control-label" style="left:20%">出生日期:</label>
+                    <div class="col-sm-4" style="left:20%">
+                        <input class="form_datetime form-control" id="birthday" type="text" size="16">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" style="left: 20%">
+                        性别:
+                    </label>
+                    <div class="col-sm-4" style="left:20%">
+                        <label><input type="radio" name="radioSex" value="0" checked="checked">男</label>
+                        <label><input type="radio" name="radioSex" value="1">女</label>
+                    </div>
+                    <div class="form-group">
+                        <a href="javascript:;" id="submit" onclick="joinUs();" class="btn btn-warning" style="position:relative; margin-top:90px; right:15%">请确认提交</a>
+                        <a href="~/" class="btn btn-warning" style="position:relative; margin-top:90px; right:10%">取消</a>
+                        <div id="errorMsg" class="alert alert-danger" style="display: none;">
+                            <a href="#" class="close" data-dismiss="alert">&times;</a>
+                            <strong id="errorInfo"></strong>
+                        </div>
+                        <div id="successMsg" class="alert alert-success" style="display: none;">
+                            <a href="#" class="close" data-dismiss="alert">&times;</a>
+                            <strong>报名成功，期待您的加入！</strong>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.zh-CN.js"></script>
+
+<script type="text/javascript">
+    $(".form_datetime").datetimepicker({
+        format: "yyyy-mm-dd",
+        autoclose: true,
+        todayBtn: true,
+        todayHighlight: true,
+        showMeridian: true,
+        pickerPosition: "bottom-left",
+        language: 'zh-CN',//中文，需要引用zh-CN.js包
+        startView: 2,//月视图
+        minView: 2//日期时间选择器所能够提供的最精确的时间选择视图
+    });
+
+    //显示错误信息
+    function showErrorMessage(error, selector) {
+        $("#errorInfo").text(error);
+        $(selector).focus();
+        $("#errorMsg").show();
+        setTimeout(function () { $("#errorMsg").hide(); }, 2000);
+    }
+    //报名
+    function joinUs() {
+        var parentName = $.trim($("#parentName").val());
+        var mobile = $.trim($("#mobile").val());
+        var childName = $.trim($("#childName").val());
+        var birthday = $.trim($("#birthday").val());
+        if (parentName.length === 0) {
+            showErrorMessage("请填写家长姓名！", "#parentName");
+            return false;
+        }
+        if (mobile.length === 0) {
+            showErrorMessage("请填写联系电话！", "#mobile");
+            return false;
+        }
+        if (childName.length === 0) {
+            showErrorMessage("请填写幼儿姓名！", "#childName");
+            return false;
+        }
+        if (birthday.length === 0) {
+            showErrorMessage("请填写幼儿出生日期！", "#birthday");
+            return false;
+        }
+        $("#submit").attr("disabled", "disabled");
+        $.ajax(
+            {
+                type: 'GET',
+                url: '/CreateJoinUs?parentName=' + parentName + '&mobile=' + mobile + '&childName=' + childName + '&sex=' + $("input[name='radioSex']:checked").val() + '&birthday=' + birthday,
+                async: true,
+                success: function (result) {
+                    console.log(result);
+                    $("#successMsg").show();
+                    setTimeout(function () { location.href = "/" }, 2000);
+                },
+                error: function (a) {
+                    console.log(a);
+                }
+            });
+    }
+</script>

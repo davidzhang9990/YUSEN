@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using Serenity.Data;
+using YSerene.Common;
 using YSerene.Default.Entities;
 
 namespace YSerene.Membership.Pages
@@ -32,27 +33,32 @@ namespace YSerene.Membership.Pages
         }
 
         [HttpGet]
+        public ActionResult Features()
+        {
+            return View(MVC.Views.Membership.Web.Features);
+        }
+
+        [HttpGet]
+        public ActionResult About()
+        {
+            return View(MVC.Views.Membership.Web.About);
+        }
+
+        [HttpGet]
+        public ActionResult Parents()
+        {
+            return View(MVC.Views.Membership.Web.Parents);
+        }
+
+        [HttpGet]
+        public ActionResult JoinUs()
+        {
+            return View(MVC.Views.Membership.Web.JoinUs);
+        }
+
+        [HttpGet]
         public ActionResult NewsList()
         {
-            //            using (var connection = SqlConnections.NewByKey("Default"))
-            //            using (var uow = new UnitOfWork(connection))
-            //            {
-            //                //var cateList = uow.Connection.Query<NewsCategoryRow>("select * from NewsCategory");
-            //                var newsList = uow.Connection.List<NewsRow>();
-            //                var total = page * 2;
-            //
-            //                if (total >= newsList.Count)
-            //                {
-            //                    page = -1;
-            //                }
-            //
-            //                page = page + 1;
-            //                return View(MVC.Views.Membership.Web.NewsList, new NewsListModel()
-            //                {
-            //                    NewsList = newsList.Take(total).OrderBy(x => x.NewsId),
-            //                    PageCount = page
-            //                });
-            //            }
             return View(MVC.Views.Membership.Web.NewsList);
         }
 
@@ -63,15 +69,17 @@ namespace YSerene.Membership.Pages
             using (var uow = new UnitOfWork(connection))
             {
                 page = page + 1;
+                var pagesize = 6;
                 //var cateList = uow.Connection.Query<NewsCategoryRow>("select * from NewsCategory");
                 var newsList = uow.Connection.List<NewsRow>();
-                var total = page * 2;
+                var total = page * pagesize;
 
                 var jsonData = new
                 {
                     rows = newsList.Take(total).OrderBy(x => x.NewsId).ToList(),
                     total = newsList.Count,
-                    page = page
+                    page = page,
+                    pagesize = pagesize
                 };
 
                 return Content(jsonData.ToJson(), "application/Json", Encoding.UTF8);
@@ -88,6 +96,27 @@ namespace YSerene.Membership.Pages
                 var caterow = uow.Connection.TryById<NewsRow>(cateId);
 
                 return View(MVC.Views.Membership.Web.NewsDetail, caterow);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult CreateJoinUs(string parentName, string mobile, string childName, int sex, string birthday)
+        {
+            using (var connection = SqlConnections.NewByKey("Default"))
+            using (var uow = new UnitOfWork(connection))
+            {
+                connection.InsertAndGetID(new EnListRow
+                {
+                    ParentName = parentName,
+                    Mobile = mobile,
+                    ChildName = childName,
+                    Sex = (MemberSex?)sex,
+                    Birthday = Convert.ToDateTime(birthday),
+                    InsertDate = DateTime.Now,
+                    InsertUserId = 1
+                });
+                uow.Commit();
+                return Content("ok");
             }
         }
     }
