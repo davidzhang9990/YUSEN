@@ -106,6 +106,8 @@ namespace MVC
                     public const string CreateEnList_ = "~/Modules/Membership/Web/CreateEnList/CreateEnList.cshtml";
                 }
                 public const string Index = "~/Modules/Membership/Web/Index.cshtml";
+                public const string NewsDetail = "~/Modules/Membership/Web/NewsDetail.cshtml";
+                public const string NewsList = "~/Modules/Membership/Web/NewsList.cshtml";
             }
         }
 

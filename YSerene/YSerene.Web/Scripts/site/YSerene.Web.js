@@ -583,7 +583,7 @@ var YSerene;
         }(Serenity.PrefixedContext));
         NewsForm.formKey = 'Default.News';
         Default.NewsForm = NewsForm;
-        [['Title', function () { return Serenity.StringEditor; }], ['Image', function () { return Serenity.ImageUploadEditor; }], ['CategoryId', function () { return Serenity.LookupEditor; }], ['SourceSite', function () { return Serenity.StringEditor; }], ['CreateDate', function () { return Serenity.DateEditor; }], ['Description', function () { return Serenity.HtmlContentEditor; }]].forEach(function (x) { return Object.defineProperty(NewsForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        [['Title', function () { return Serenity.StringEditor; }], ['CategoryId', function () { return Serenity.LookupEditor; }], ['SourceSite', function () { return Serenity.StringEditor; }], ['CreateDate', function () { return Serenity.DateEditor; }], ['Image', function () { return Serenity.ImageUploadEditor; }], ['Description', function () { return Serenity.HtmlContentEditor; }]].forEach(function (x) { return Object.defineProperty(NewsForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
     })(Default = YSerene.Default || (YSerene.Default = {}));
 })(YSerene || (YSerene = {}));
 var YSerene;

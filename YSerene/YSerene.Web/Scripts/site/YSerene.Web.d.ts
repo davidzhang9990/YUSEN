@@ -543,10 +543,10 @@ declare namespace YSerene.Default {
     }
     interface NewsForm {
         Title: Serenity.StringEditor;
-        Image: Serenity.ImageUploadEditor;
         CategoryId: Serenity.LookupEditor;
         SourceSite: Serenity.StringEditor;
         CreateDate: Serenity.DateEditor;
+        Image: Serenity.ImageUploadEditor;
         Description: Serenity.HtmlContentEditor;
     }
 }
