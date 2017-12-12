@@ -96,18 +96,21 @@ namespace MVC
                     public const string AccountSignUp = "~/Modules/Membership/Account/SignUp/AccountSignUp.cshtml";
                     public const string AccountSignUp_AdminLTE = "~/Modules/Membership/Account/SignUp/AccountSignUp.AdminLTE.cshtml";
                 }
-
             }
 
             public static class Web
             {
+                public const string About = "~/Modules/Membership/Web/About.cshtml";
                 public static class CreateEnList
                 {
                     public const string CreateEnList_ = "~/Modules/Membership/Web/CreateEnList/CreateEnList.cshtml";
                 }
+                public const string Features  = "~/Modules/Membership/Web/Features .cshtml";
                 public const string Index = "~/Modules/Membership/Web/Index.cshtml";
+                public const string JoinUs = "~/Modules/Membership/Web/JoinUs.cshtml";
                 public const string NewsDetail = "~/Modules/Membership/Web/NewsDetail.cshtml";
                 public const string NewsList = "~/Modules/Membership/Web/NewsList.cshtml";
+                public const string Parents = "~/Modules/Membership/Web/Parents.cshtml";
             }
         }
 
