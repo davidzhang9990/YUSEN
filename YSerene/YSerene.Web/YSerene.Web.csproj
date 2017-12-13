@@ -720,7 +720,6 @@
     <Content Include="images\team\5.jpg" />
     <Content Include="images\team\6.jpg" />
     <Content Include="images\team\t1.jpg" />
-    <Content Include="index.html" />
     <Content Include="Modules\Membership\Account\SignUp\AccountSignUp.AdminLTE.cshtml" />
     <Content Include="Imports\Web.config" />
     <Content Include="Migrations\Web.config" />
