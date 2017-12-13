@@ -733,7 +733,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Readme.CodeGenerator.txt" />
     <Content Include="Scripts\bootstrap-datetimepicker-master\css\bootstrap-datetimepicker.css" />
     <Content Include="Scripts\bootstrap-datetimepicker-master\js\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker-master\js\bootstrap-datetimepicker.zh-CN.js" />
