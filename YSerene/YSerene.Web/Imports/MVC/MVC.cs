@@ -58,6 +58,11 @@ namespace MVC
             {
                 public const string NewsCategoryIndex = "~/Modules/Default/NewsCategory/NewsCategoryIndex.cshtml";
             }
+
+            public static class Pictures
+            {
+                public const string PicturesIndex = "~/Modules/Default/Pictures/PicturesIndex.cshtml";
+            }
         }
 
         public static class Errors
@@ -111,6 +116,8 @@ namespace MVC
                 public const string NewsDetail = "~/Modules/Membership/Web/NewsDetail.cshtml";
                 public const string NewsList = "~/Modules/Membership/Web/NewsList.cshtml";
                 public const string Parents = "~/Modules/Membership/Web/Parents.cshtml";
+                public const string PictureDetail = "~/Modules/Membership/Web/PictureDetail.cshtml";
+                public const string PictureList = "~/Modules/Membership/Web/PictureList.cshtml";
             }
         }
 

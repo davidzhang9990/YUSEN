@@ -1008,6 +1008,8 @@
     <Content Include="Modules\Membership\Web\Parents.cshtml" />
     <Content Include="Modules\Membership\Web\About.cshtml" />
     <Content Include="Modules\Membership\Web\JoinUs.cshtml" />
+    <Content Include="Modules\Membership\Web\PictureList.cshtml" />
+    <Content Include="Modules\Membership\Web\PictureDetail.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -1505,6 +1507,9 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Default.NewsColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PicturesColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Membership.CreateEnListRequest.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1799,6 +1804,18 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Default.NewsCategoryForm.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PicturesRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PicturesService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\Pictures\PicturesIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\Pictures\PicturesDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\Pictures\PicturesGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PicturesForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1817,6 +1834,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DefaultDB\DefaultDB_20171206_120300_NewsCategory.cs" />
+    <Compile Include="Migrations\DefaultDB\DefaultDB_20171218_180000_Pictures.cs" />
     <Compile Include="Migrations\DefaultDB\DefaultDB_20171129_202800_EnList.cs" />
     <Compile Include="Modules\Administration\Language\LanguageLookup.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionUpdateRequest.cs" />
@@ -1959,6 +1977,12 @@
     <Compile Include="Modules\Default\NewsCategory\NewsCategoryPage.cs" />
     <Compile Include="Modules\Default\NewsCategory\NewsCategoryColumns.cs" />
     <Compile Include="Modules\Default\NewsCategory\NewsCategoryForm.cs" />
+    <Compile Include="Modules\Default\Pictures\PicturesRow.cs" />
+    <Compile Include="Modules\Default\Pictures\PicturesRepository.cs" />
+    <Compile Include="Modules\Default\Pictures\PicturesEndpoint.cs" />
+    <Compile Include="Modules\Default\Pictures\PicturesPage.cs" />
+    <Compile Include="Modules\Default\Pictures\PicturesColumns.cs" />
+    <Compile Include="Modules\Default\Pictures\PicturesForm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

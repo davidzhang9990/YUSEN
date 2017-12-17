@@ -1,0 +1,35 @@
+﻿@model YSerene.Default.Entities.PicturesRow
+@{
+    ViewData["Title"] = "PictureDetail";
+    ViewData["PageId"] = "PictureDetail";
+    Layout = MVC.Views.Shared._NewLayout;
+}
+
+<section class="page-title center">
+    <div class="container">
+        <h2>@Model.Title</h2>
+        <ul>
+            <li><a href="~/">首页</a></li>
+            <li><a href="javascript:;">@Model.Title</a></li>
+        </ul>
+    </div>
+</section>
+<section class="event style-2">
+    <div class="container">
+        <div class="row" id="detailpanel">
+          
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+<script>
+    var data = eval('(@Html.Raw(Model.ImageList))');
+    var $html = "";
+    for (var i in data) {
+        $html += "<div class=\"col-md-4 col-sm-6 col-xsw-12 item wow fadeIn\" data-wow-duration=\"2s\" data-wow-delay=\"0.7s\" data-wow-offset=\"0\" style=\"visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;\">";
+        $html += "<div class=\"img-holder\">";
+        $html += "<figure><img src=\"/upload/" + data[i].Filename + "\" alt=\"\"></figure>";
+        $html += "</div></div>";
+    }
+    $("#detailpanel").html($html);
+</script>

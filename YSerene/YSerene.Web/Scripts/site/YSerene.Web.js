@@ -642,6 +642,73 @@ var YSerene;
 })(YSerene || (YSerene = {}));
 var YSerene;
 (function (YSerene) {
+    var Default;
+    (function (Default) {
+        var PicturesForm = (function (_super) {
+            __extends(PicturesForm, _super);
+            function PicturesForm() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            return PicturesForm;
+        }(Serenity.PrefixedContext));
+        PicturesForm.formKey = 'Default.Pictures';
+        Default.PicturesForm = PicturesForm;
+        [['Title', function () { return Serenity.StringEditor; }], ['KeyImage', function () { return Serenity.ImageUploadEditor; }], ['ImageList', function () { return Serenity.MultipleImageUploadEditor; }], ['Description', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(PicturesForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+    })(Default = YSerene.Default || (YSerene.Default = {}));
+})(YSerene || (YSerene = {}));
+var YSerene;
+(function (YSerene) {
+    var Default;
+    (function (Default) {
+        var PicturesRow;
+        (function (PicturesRow) {
+            PicturesRow.idProperty = 'PictureId';
+            PicturesRow.nameProperty = 'Title';
+            PicturesRow.localTextPrefix = 'Default.Pictures';
+            var Fields;
+            (function (Fields) {
+            })(Fields = PicturesRow.Fields || (PicturesRow.Fields = {}));
+            [
+                'PictureId',
+                'Title',
+                'KeyImage',
+                'ImageList',
+                'Description',
+                'InsertUserId',
+                'InsertDate',
+                'UpdateUserId',
+                'UpdateDate'
+            ].forEach(function (x) { return Fields[x] = x; });
+        })(PicturesRow = Default.PicturesRow || (Default.PicturesRow = {}));
+    })(Default = YSerene.Default || (YSerene.Default = {}));
+})(YSerene || (YSerene = {}));
+var YSerene;
+(function (YSerene) {
+    var Default;
+    (function (Default) {
+        var PicturesService;
+        (function (PicturesService) {
+            PicturesService.baseUrl = 'Default/Pictures';
+            var Methods;
+            (function (Methods) {
+            })(Methods = PicturesService.Methods || (PicturesService.Methods = {}));
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                PicturesService[x] = function (r, s, o) {
+                    return Q.serviceRequest(PicturesService.baseUrl + '/' + x, r, s, o);
+                };
+                Methods[x] = PicturesService.baseUrl + '/' + x;
+            });
+        })(PicturesService = Default.PicturesService || (Default.PicturesService = {}));
+    })(Default = YSerene.Default || (YSerene.Default = {}));
+})(YSerene || (YSerene = {}));
+var YSerene;
+(function (YSerene) {
     var Membership;
     (function (Membership) {
         var ChangePasswordForm = (function (_super) {
@@ -2990,6 +3057,53 @@ var YSerene;
             Serenity.Decorators.registerClass()
         ], NewsCategoryGrid);
         Default.NewsCategoryGrid = NewsCategoryGrid;
+    })(Default = YSerene.Default || (YSerene.Default = {}));
+})(YSerene || (YSerene = {}));
+var YSerene;
+(function (YSerene) {
+    var Default;
+    (function (Default) {
+        var PicturesDialog = (function (_super) {
+            __extends(PicturesDialog, _super);
+            function PicturesDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Default.PicturesForm(_this.idPrefix);
+                return _this;
+            }
+            PicturesDialog.prototype.getFormKey = function () { return Default.PicturesForm.formKey; };
+            PicturesDialog.prototype.getIdProperty = function () { return Default.PicturesRow.idProperty; };
+            PicturesDialog.prototype.getLocalTextPrefix = function () { return Default.PicturesRow.localTextPrefix; };
+            PicturesDialog.prototype.getNameProperty = function () { return Default.PicturesRow.nameProperty; };
+            PicturesDialog.prototype.getService = function () { return Default.PicturesService.baseUrl; };
+            return PicturesDialog;
+        }(Serenity.EntityDialog));
+        PicturesDialog = __decorate([
+            Serenity.Decorators.registerClass(),
+            Serenity.Decorators.responsive()
+        ], PicturesDialog);
+        Default.PicturesDialog = PicturesDialog;
+    })(Default = YSerene.Default || (YSerene.Default = {}));
+})(YSerene || (YSerene = {}));
+var YSerene;
+(function (YSerene) {
+    var Default;
+    (function (Default) {
+        var PicturesGrid = (function (_super) {
+            __extends(PicturesGrid, _super);
+            function PicturesGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            PicturesGrid.prototype.getColumnsKey = function () { return 'Default.Pictures'; };
+            PicturesGrid.prototype.getDialogType = function () { return Default.PicturesDialog; };
+            PicturesGrid.prototype.getIdProperty = function () { return Default.PicturesRow.idProperty; };
+            PicturesGrid.prototype.getLocalTextPrefix = function () { return Default.PicturesRow.localTextPrefix; };
+            PicturesGrid.prototype.getService = function () { return Default.PicturesService.baseUrl; };
+            return PicturesGrid;
+        }(Serenity.EntityGrid));
+        PicturesGrid = __decorate([
+            Serenity.Decorators.registerClass()
+        ], PicturesGrid);
+        Default.PicturesGrid = PicturesGrid;
     })(Default = YSerene.Default || (YSerene.Default = {}));
 })(YSerene || (YSerene = {}));
 var YSerene;

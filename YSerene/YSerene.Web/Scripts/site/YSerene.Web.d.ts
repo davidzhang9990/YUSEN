@@ -602,6 +602,65 @@ declare namespace YSerene.Default {
         }
     }
 }
+declare namespace YSerene.Default {
+}
+declare namespace YSerene.Default {
+    class PicturesForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface PicturesForm {
+        Title: Serenity.StringEditor;
+        KeyImage: Serenity.ImageUploadEditor;
+        ImageList: Serenity.MultipleImageUploadEditor;
+        Description: Serenity.StringEditor;
+    }
+}
+declare namespace YSerene.Default {
+    interface PicturesRow {
+        PictureId?: number;
+        Title?: string;
+        KeyImage?: string;
+        ImageList?: string;
+        Description?: string;
+        InsertUserId?: number;
+        InsertDate?: string;
+        UpdateUserId?: number;
+        UpdateDate?: string;
+    }
+    namespace PicturesRow {
+        const idProperty = "PictureId";
+        const nameProperty = "Title";
+        const localTextPrefix = "Default.Pictures";
+        namespace Fields {
+            const PictureId: string;
+            const Title: string;
+            const KeyImage: string;
+            const ImageList: string;
+            const Description: string;
+            const InsertUserId: string;
+            const InsertDate: string;
+            const UpdateUserId: string;
+            const UpdateDate: string;
+        }
+    }
+}
+declare namespace YSerene.Default {
+    namespace PicturesService {
+        const baseUrl = "Default/Pictures";
+        function Create(request: Serenity.SaveRequest<PicturesRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<PicturesRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<PicturesRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<PicturesRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
 declare namespace YSerene {
     interface ExcelImportRequest extends Serenity.ServiceRequest {
         FileName?: string;
@@ -1215,6 +1274,26 @@ declare namespace YSerene.Default {
     class NewsCategoryGrid extends Serenity.EntityGrid<NewsCategoryRow, any> {
         protected getColumnsKey(): string;
         protected getDialogType(): typeof NewsCategoryDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace YSerene.Default {
+    class PicturesDialog extends Serenity.EntityDialog<PicturesRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: PicturesForm;
+    }
+}
+declare namespace YSerene.Default {
+    class PicturesGrid extends Serenity.EntityGrid<PicturesRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof PicturesDialog;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;

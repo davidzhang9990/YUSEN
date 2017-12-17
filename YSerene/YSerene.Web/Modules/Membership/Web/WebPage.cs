@@ -19,17 +19,7 @@ namespace YSerene.Membership.Pages
         [HttpGet]
         public ActionResult Index(string activated)
         {
-            using (var connection = SqlConnections.NewByKey("Default"))
-            using (var uow = new UnitOfWork(connection))
-            {
-                //var cateList = uow.Connection.Query<NewsCategoryRow>("select * from NewsCategory");
-                var cateList = uow.Connection.List<NewsCategoryRow>();
-
-                return View(MVC.Views.Membership.Web.Index, new NewsCategoryModel()
-                {
-                    NewsCategoryLists = cateList
-                });
-            }
+            return View(MVC.Views.Membership.Web.Index);
         }
 
         [HttpGet]
@@ -63,6 +53,58 @@ namespace YSerene.Membership.Pages
         }
 
         [HttpGet]
+        public ActionResult PictureList()
+        {
+            return View(MVC.Views.Membership.Web.PictureList);
+        }
+
+        [HttpGet]
+        public ActionResult PictureDetail(int pid)
+        {
+            using (var connection = SqlConnections.NewByKey("Default"))
+            using (var uow = new UnitOfWork(connection))
+            {
+                var pictureRow = uow.Connection.TryById<PicturesRow>(pid);
+
+                return View(MVC.Views.Membership.Web.PictureDetail, pictureRow);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult GetAllPictures()
+        {
+            using (var connection = SqlConnections.NewByKey("Default"))
+            using (var uow = new UnitOfWork(connection))
+            {
+                var pictureList = uow.Connection.List<PicturesRow>();
+                return Content(pictureList.ToJson(), "application/Json", Encoding.UTF8);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult GetPicturesQuery(int page = 0)
+        {
+            using (var connection = SqlConnections.NewByKey("Default"))
+            using (var uow = new UnitOfWork(connection))
+            {
+                page = page + 1;
+                var pagesize = 6;
+                var newsList = uow.Connection.List<PicturesRow>();
+                var total = page * pagesize;
+
+                var jsonData = new
+                {
+                    rows = newsList.Take(total).OrderBy(x => x.PictureId).ToList(),
+                    total = newsList.Count,
+                    page = page,
+                    pagesize = pagesize
+                };
+
+                return Content(jsonData.ToJson(), "application/Json", Encoding.UTF8);
+            }
+        }
+
+        [HttpGet]
         public ActionResult GetNewsQuery(int page = 0)
         {
             using (var connection = SqlConnections.NewByKey("Default"))
@@ -92,7 +134,6 @@ namespace YSerene.Membership.Pages
             using (var connection = SqlConnections.NewByKey("Default"))
             using (var uow = new UnitOfWork(connection))
             {
-                //var cateList = uow.Connection.Query<NewsCategoryRow>("select * from NewsCategory");
                 var caterow = uow.Connection.TryById<NewsRow>(cateId);
 
                 return View(MVC.Views.Membership.Web.NewsDetail, caterow);

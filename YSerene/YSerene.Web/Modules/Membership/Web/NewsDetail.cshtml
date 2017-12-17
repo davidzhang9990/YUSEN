@@ -6,15 +6,37 @@
     Layout = MVC.Views.Shared._NewLayout;
 }
 
-
-<div>cate detail</div>
-
-@if (Model != null)
-{
-    <div>@Model.Title</div>
-@*    <div>@Model.CategoryCategoryName</div>*@
-    <div>
-        @Html.Raw(Model.Description)
+<section class="page-title center">
+    <div class="container">
+        <h2>育森新闻</h2>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="xinwen.html">育森新闻</a></li>
+        </ul>
     </div>
-}
+</section>
+<section class="about">
+    <div class="container">
+
+        <div class="row">
+            <div class="single-column col-sm-12">
+                <div class="wow fadeIn" data-wow-duration="2s" data-wow-delay="0.5s" data-wow-offset="0" style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;">
+                    <div class="post-content">
+                        @if (Model != null)
+                        {
+                            <div style="position:relative; left:30%;">
+                                <h2>@Model.Title</h2>
+                            </div>
+                            <div class="text" style="position:relative; padding-top:20px;">
+                                @Html.Raw(Model.Description)
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 

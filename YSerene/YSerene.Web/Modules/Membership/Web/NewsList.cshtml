@@ -137,7 +137,7 @@
                 var date = new Date(data.rows[i].CreateDate);
                 $html += "<div class=\"col-md-4 col-sm-6 col-xsw-12 item wow fadeIn\" data-wow-duration=\"2s\" data-wow-delay=\"0.7s\" data-wow-offset=\"0\" style=\"visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;\">";
                 $html += "<div class=\"img-holder\">";
-                $html += "<figure><a href=\"javascript:;\"><img src=\"/upload/" + data.rows[i].Image + "\" alt=\"" + data.rows[i].Title + "\"></a></figure>";
+                $html += "<figure><a href=\"/NewsDetail?cateId=" + data.rows[i].NewsId + "\"><img src=\"/upload/" + data.rows[i].Image + "\" alt=\"" + data.rows[i].Title + "\"></a></figure>";
                 $html += "<div class=\"content bg-color-3\">";
                 $html += "<div class=\"inner-box\"><div class=\"btn-box\"><div class=\"count\">" + date.getDate() + "</div>";
                 $html += "<div class=\"month\">" + date.getFullYear() + '-' + (date.getMonth() + 1) + "</div></div>";

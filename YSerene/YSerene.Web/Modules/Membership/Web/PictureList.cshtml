@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "PictureList";
+    ViewData["PageId"] = "PictureList";
+    Layout = MVC.Views.Shared._NewLayout;
+}
+
+<section class="page-title center">
+    <div class="container">
+        <h2>图片库</h2>
+        <ul>
+            <li><a href="~/">首页</a></li>
+            <li><a href="javascript:;">图片库</a></li>
+        </ul>
+    </div>
+</section>
+<section class="event style-2">
+    <div class="container">
+        <div class="row" id="newpanel">
+
+        </div>
+        <div class="link-btn center" id="more_button">
+            <a href="javascript:;" onclick="initList();" class="theme-btn btn-style-one">更多</a>
+        </div>
+        <input type="hidden" id="pagecount" value="0">
+    </div>
+</section>
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        initList();
+    });
+
+    function initList() {
+        $.get("/GetPicturesQuery", {
+            page: $("#pagecount").val()
+        }, function (result) {
+            var data = eval("(" + result + ")");
+            var $html = "";
+            for (var i in data.rows) {
+                $html += "<div class=\"col-md-4 col-sm-6 col-xsw-12 item wow fadeIn\" data-wow-duration=\"2s\" data-wow-delay=\"0.7s\" data-wow-offset=\"0\" style=\"visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;\">";
+                $html += "<div class=\"img-holder\">";
+                $html += "<figure><a href=\"/PictureDetail?pid=" + data.rows[i].PictureId + "\"><img src=\"/upload/" + data.rows[i].KeyImage + "\" alt=\"" + data.rows[i].Title + "\"></a></figure>";
+                $html += "<div class=\"content bg-color-2\"><div class=\"inner-box\">";
+                $html += "<p>" + data.rows[i].Title + "</p>";
+                $html += "</div></div></div></div>";
+            }
+            $("#newpanel").html($html);
+            $("#pagecount").val(data.page);
+            if (data.page * data.pagesize >= data.total) $("#more_button").hide();
+        });
+    }
+</script>
