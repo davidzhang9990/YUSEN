@@ -26,23 +26,22 @@
 @import url(../css/masterslider/style/ms-vertical.css);
 @import url(../css/style.css);
 
-
 @font-face {
-    font-family: '时光体-安娜';
-    src: url(../fonts/时光体.ttf);
+    font-family: '汉仪帅线体W';
+    src: url(../fonts/汉仪帅线体W.ttf);
 }
 @font-face {
-    font-family: '华康娃娃体W5 regular';
+    font-family:'华康娃娃体W5 regular';
     src: url(../fonts/华康娃娃体简W5.ttc);
 }
 @font-face {
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     src: url(../fonts/Dosis/Dosis-ExtraLight.ttf);
 }
 
 @font-face {
-    font-family: 'MYuppy-Bold-DDC';
-    src: url(../fonts/花儿幼稚园_1.ttf);
+    font-family:'汉仪豆豆体简';
+    src: url(../fonts/汉仪豆豆体简.ttf);
 }
 
 
