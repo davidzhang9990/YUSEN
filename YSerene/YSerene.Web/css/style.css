@@ -114,7 +114,7 @@ header .main-header .header-top {
     display: inline-block;
     font-size: 15px;
     color: #999;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     padding: 20px 20px;
 
 }
@@ -132,7 +132,7 @@ header .main-header .header-top {
 .header-top .register a {
     font-size: 16px;
     color: #999;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
 }
 
 
@@ -154,7 +154,7 @@ header .main-header .header-top {
     height: auto;
     font-size: 16px;
     color: #999;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
 }
 
 
@@ -515,7 +515,7 @@ end===================
 .navbar .navbar-collapse > ul > li > a {
     display: block;
     font-size: 20px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     text-transform: capitalize;
     padding: 24px 20px 18px;
     transition:all 500ms ease;
@@ -575,7 +575,7 @@ end===================
 	padding: 10px 19px;
 	transition: all .3s ease;
     text-align: left;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
 }
 
 .navbar .navbar-collapse > ul > li > ul > li:hover > a {
@@ -610,13 +610,13 @@ end===================
 }
 .navbar .navbar-collapse > ul > li > ul > li > ul > li > a {
 	display: block;
-	font-size: 20时光体-安娜-mediumpx;
+	font-size: 20汉仪帅线体W-mediumpx;
 	text-transform: capitalize;
 	color: #232323;
 	padding: 10px 19px;
 	transition: all .3s ease;
     text-align: left;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
 }
 .navbar .navbar-collapse > ul > li > ul > li > ul > li:hover > a {
 	background: #F9F9F9;
@@ -689,7 +689,7 @@ end===================
     position: relative;
     color: #fff;
     font-size: 30px;
-    font-family: '时光体-安娜-semibold';
+    font-family: '汉仪帅线体W-semibold';
     margin-bottom: 25px;
 }
 .rev_slider_wrapper .outer-box h3 {
@@ -759,7 +759,7 @@ end===================
 }
 .about .list li {
     position: relative;
-    font-family: "时光体-安娜";
+    font-family: "汉仪帅线体W";
     color: #777;
     font-size: 20px;
     padding-left: 38px;
@@ -850,7 +850,7 @@ end===================
 .about .chose-info  .item h4 a {
     position:relative;
     font-size: 18px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     transition: .5s ease;
 }
 
@@ -914,7 +914,7 @@ end===================
 
 .call-out .column p {
     font-size:26px;
-    font-family: "时光体-安娜";
+    font-family: "汉仪帅线体W";
     color: #fff;
     float: left;
     line-height: 25px;
@@ -1305,7 +1305,7 @@ end===================
     color: #fff;
     font-size: 20px;
     padding: 13px 0 24px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
 }
 
 .cource .content-column {
@@ -1324,7 +1324,7 @@ end===================
     position: relative;
     color: #fff;
     font-size: 30px;
-    font-family: '时光体-安娜-semibold';
+    font-family: '汉仪帅线体W-semibold';
     margin: 20px 0 20px;
 }
 .cource .post-content p {
@@ -1345,7 +1345,7 @@ end===================
     position: relative;
     color: #fff;
     font-size: 20px;
-    font-family: '时光体-安娜-medium';
+    font-family: '汉仪帅线体W-medium';
 }
 
 
@@ -1680,7 +1680,7 @@ end===================
 
 .two-column .content-column .content a {
     position: relative;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     font-size: 17px;
     color: #f8b54d;
     transition: .5s ease;
@@ -1742,7 +1742,7 @@ end===================
     position: relative;
     color: #fff;
     font-size: 17px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     padding: 6px 34px;
     background: #77cabd;
     z-index: 9;
@@ -2254,7 +2254,7 @@ body.popup-visible{
     position: relative;
     font-size: 18px;
     text-transform: capitalize;
-    font-family: '时光体-安娜-semibold';
+    font-family: '汉仪帅线体W-semibold';
     margin-bottom: 8px;
 }
 
@@ -2272,7 +2272,7 @@ body.popup-visible{
     position: relative;
     font-size: 22px;
     text-transform: capitalize;
-    font-family: '时光体-安娜-semibold';
+    font-family: '汉仪帅线体W-semibold';
     color: #fba505;
 }
 
@@ -2505,7 +2505,7 @@ body.popup-visible{
     line-height: 59px;
     font-size: 17px;
     color: #fff;
-    font-family: "时光体-安娜";
+    font-family: "汉仪帅线体W";
 
 }
 
@@ -2590,7 +2590,7 @@ body.popup-visible{
 .footer-style-2 .footer-widget-about .content ul li a {
     position: relative;
     font-size: 15px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     color: #888;
     float: left;
 }
@@ -2630,7 +2630,7 @@ body.popup-visible{
     position:relative;
     color:#888;
     font-size:13px;
-    font-family: '时光体-安娜-medium';
+    font-family: '汉仪帅线体W-medium';
     margin-top: 5px;
 }
 
@@ -2665,7 +2665,7 @@ body.popup-visible{
     font-size:16px;
     color:#888;
     transition: .5s ease;
-    font-family: '时光体-安娜-medium';
+    font-family: '汉仪帅线体W-medium';
 }
 
 .footer-style-2 .links-column li a:hover {
@@ -2800,7 +2800,7 @@ body.popup-visible{
 .footer-style-3 .footer-widget-about .content ul li a {
     position: relative;
     font-size: 15px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     color: #fff;
     float: left;
 }
@@ -2841,7 +2841,7 @@ body.popup-visible{
     position:relative;
     color:#fff;
     font-size:13px;
-    font-family: '时光体-安娜-medium';
+    font-family: '汉仪帅线体W-medium';
     margin-top: 5px;
 }
 
@@ -2876,7 +2876,7 @@ body.popup-visible{
     font-size:16px;
     color:#fff;
     transition: .5s ease;
-    font-family: '时光体-安娜-medium';
+    font-family: '汉仪帅线体W-medium';
 }
 
 .footer-style-3 .links-column li a:hover {
@@ -3074,6 +3074,159 @@ body.popup-visible{
 
 
 
+/*
+===========================
+     photo style
+==========================
+*/
+
+
+
+.photo {
+    position: relative;
+    padding: 120px 0 120px;
+}
+
+.photo.style-2:before {
+    display: none;
+}
+
+.photo.style-2 .item {
+    margin-bottom: 30px;
+}
+.photo .link-btn {
+    margin-top: 50px;
+}
+
+.photo:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: url(../images/overly/event.png) center bottom no-repeat;
+    z-index: 0;
+}
+.photo .img-holder {
+    position: relative;
+    border-radius: 0 15px;
+    background: #d0d0d0;
+    overflow: hidden;
+}
+.photo .img-holder img {
+    width: 100%;
+}
+
+.photo .content {
+    position: relative;
+}
+
+.photo .content.bg-color-1{
+    background: #ec4f74;
+}
+
+.photo .content.bg-color-2{
+    background: #adcb69;
+}
+
+.photo .content.bg-color-3{
+    background: #f8b54d;
+}
+
+.photo .inner-box {
+    position: relative;
+    padding: 24px 20px;
+    padding-left: 35%;
+}
+
+.photo .inner-box .btn-box {
+    position: absolute;
+    left: 20px;
+    top: 24px;
+    border: 1px solid #fff;
+    height: 65px;
+    width: 70px;
+    text-align: center;
+    padding-top: 8px;
+    border-radius: 0 10px;
+}
+
+.photo .inner-box .count {
+    position: relative;
+    color: #fff;
+    font-family: '汉仪帅线体W';
+    font-size: 27px;
+    line-height: 24px;
+}
+
+.photo .inner-box .month {
+    position: relative;
+    color: #fff;
+    font-family: '汉仪帅线体W';
+    font-size: 18px;
+    line-height: 24px;
+}
+
+
+
+.photo .inner-box h4 {
+    margin-top:5px;
+    margin-bottom:2px;
+    font-size: 20px;
+}
+
+.photo .inner-box h4 a {
+    color: #fff;
+    transition: .5s ease;
+}
+.photo .inner-box h4 a:hover {
+    color: #232323;
+    transition: .5s ease;
+}
+
+.photo .inner-box p {
+    color: #fff;
+    line-height: 26px;
+}
+.photo .inner-box p span {
+    color: #fff;
+    font-size: 14px;
+    margin-right: 6px;
+}
+
+/*dots*/
+.photo .owl-controls {
+    text-align: center;
+    display: block;
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 27px;
+
+}
+
+
+.photo .owl-dots .owl-dot {
+    display: inline-block;
+}
+.photo .owl-dots .owl-dot span {
+    background: none repeat scroll 0 0 #d5d5d5;
+    border-radius: 50%;
+    display: block;
+    height: 12px;
+    width: 12px;
+    margin: 5px 7px;
+    transition: opacity 200ms ease 0s;
+    border: 2px solid transparent;
+    transition: .5s ease-in-out;
+}
+.photo .owl-dots .owl-dot.active span,
+.photo .owl-dots .owl-dot:hover span {
+    background: transparent;
+    border-color: #8373ce;
+    transition: .5s ease-in-out;
+}
+
 
 /*
 ===========================
@@ -3137,6 +3290,8 @@ body.popup-visible{
 
 .event .inner-box {
     position: relative;
+	height:100px;
+	width:370px;
     padding: 24px 20px;
     padding-left: 105px;
 }
@@ -3156,7 +3311,7 @@ body.popup-visible{
 .event .inner-box .count {
     position: relative;
     color: #fff;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     font-size: 27px;
     line-height: 24px;
 }
@@ -3164,7 +3319,7 @@ body.popup-visible{
 .event .inner-box .month {
     position: relative;
     color: #fff;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     font-size: 18px;
     line-height: 24px;
 }
@@ -3372,7 +3527,7 @@ body.popup-visible{
     position: relative;
     font-size: 25px;
     color: #fff;
-    font-family: '时光体-安娜-medium';
+    font-family: '汉仪帅线体W-medium';
 }
 
 .classroom .tab-content .item .date,
@@ -3380,7 +3535,7 @@ body.popup-visible{
     position: relative;
     font-size: 24px;
     color: #fff;
-    font-family: '时光体-安娜-medium';
+    font-family: '汉仪帅线体W-medium';
 }
 
 .classroom .tab-content .item p {
@@ -3408,7 +3563,7 @@ body.popup-visible{
     position: relative;
     font-size: 30px;
     color: #c66196;
-    font-family: '时光体-安娜-semibold';
+    font-family: '汉仪帅线体W-semibold';
     margin-top: 35px;
 }
 
@@ -3521,7 +3676,7 @@ body.popup-visible{
     position: relative;
     color: #fff;
     font-size: 15px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     margin-bottom: 5px;
 }
 .blog .img-box-s1 .overlay h3 {
@@ -3545,7 +3700,7 @@ body.popup-visible{
     display: table-cell;
     color: #fff;
     font-size: 15px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     padding-right: 12px;
 }
 
@@ -3577,7 +3732,7 @@ body.popup-visible{
     position: relative;
     color: #77cabd;
     font-size: 15px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     margin-bottom: 5px;
 }
 .blog .img-box-s2.color-style2 .content .date {
@@ -3613,7 +3768,7 @@ body.popup-visible{
     position: relative;
     color: #777;
     font-size: 15px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     padding-right: 12px;
     line-height: 34px;
 }
@@ -3759,7 +3914,7 @@ body.popup-visible{
     padding: 13px 83px;
     color: #fff;
     font-size: 18px;
-    font-family: '时光体-安娜-semibold';
+    font-family: '汉仪帅线体W-semibold';
     display: inline-block;
 }
 
@@ -3776,7 +3931,7 @@ body.popup-visible{
 
 .intro-section .see-more.style-3 .link-btn{
     position: relative;
-    font-family: '时光体-安娜-semibold';
+    font-family: '汉仪帅线体W-semibold';
     font-size: 18px;
     color: #f8b54d;
 }
@@ -3862,7 +4017,7 @@ body.popup-visible{
     padding-right: 20px;
     font-size: 20px;
     line-height: 26px;
-    font-family: '时光体-安娜-semibold';
+    font-family: '汉仪帅线体W-semibold';
 }
 
 .popular-class .inner-box .class-time {
@@ -3873,7 +4028,7 @@ body.popup-visible{
     padding: 0 14px;
     font-size: 20px;
     line-height: 26px;
-    font-family: '时光体-安娜-semibold';
+    font-family: '汉仪帅线体W-semibold';
 }
 .popular-class .inner-box .class-time p{
     font-size: 15px;
@@ -3943,7 +4098,7 @@ body.popup-visible{
     position: relative;
     color: #777;
     font-size: 18px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     margin-top: 16px;
     
 }
@@ -3965,7 +4120,7 @@ body.popup-visible{
     color:#777;
     height:55px;
     font-size:13px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     color:#292929;
     border-radius:0px;
     border-radius: 0 15px;
@@ -4059,7 +4214,7 @@ body.popup-visible{
 .upcoming-event .inner-box .count {
     position: relative;
     color: #f8b54d;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     font-size: 27px;
     line-height: 24px;
 }
@@ -4067,7 +4222,7 @@ body.popup-visible{
 .upcoming-event .inner-box .month {
     position: relative;
     color: #f8b54d;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     font-size: 18px;
     line-height: 24px;
 }
@@ -4185,7 +4340,7 @@ body.popup-visible{
     position: absolute;
     content: '/';
     font-size: 20px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     color: #fff;
     right: 0px;
     top: 9px;
@@ -4244,7 +4399,7 @@ body.popup-visible{
     position: absolute;
     content: '/';
     font-size: 20px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     color: #fff;
     right: 0px;
     top: 9px;
@@ -4451,7 +4606,7 @@ body.popup-visible{
     color: #fff;
     line-height: 45px;
     padding: 0 41px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     text-transform: capitalize;
 }
 
@@ -4622,7 +4777,7 @@ body.popup-visible{
     position: relative;
     font-size: 20px;
     color: #77c9bc;  
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     margin-right: 20px;
     line-height: 17px;
     margin-bottom: 23px;
@@ -4632,7 +4787,7 @@ body.popup-visible{
     position: relative;
     font-size: 16px;
     color: #f8b54d;  
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     margin-right: 37px;
 }
 
@@ -4659,7 +4814,7 @@ body.popup-visible{
     display: inline-block;
     margin-right: 10px;
     font-size: 15px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     text-transform: capitalize;
 }
 
@@ -4709,7 +4864,7 @@ body.popup-visible{
     color:#777;
     font-size: 14px;
     border-radius: 0 15px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     border:1px solid #ececec;
     height:50px;
     transition:all 300ms ease;
@@ -4736,7 +4891,7 @@ body.popup-visible{
     padding:25px 30px;
     border-radius: 0 15px;
     color:#999;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     font-size: 14px;
     border:1px solid #ececec;
     height:170px;
@@ -4768,7 +4923,7 @@ body.popup-visible{
 }
 .single-post .comment-form button{
     font-size: 20px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     text-transform: uppercase;
     padding: 11px 36px;
 }
@@ -4857,7 +5012,7 @@ body.popup-visible{
     margin:0px;
     line-height:1.6em;
     color:#777;
-    font-family:'时光体-安娜'; 
+    font-family:'汉仪帅线体W'; 
 }
 
 .sidebar .recent-posts .post a,
@@ -4870,7 +5025,7 @@ body.popup-visible{
     color:#333; 
     transition: .5s ease; 
     font-size:16px;
-    font-family: '时光体-安娜-medium';
+    font-family: '汉仪帅线体W-medium';
 
 }
 
@@ -4952,7 +5107,7 @@ body.popup-visible{
     margin: 0px 2px 5px 0px;
     text-transform: capitalize;
     font-size: 14px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     transition: all 300ms ease;
     -webkit-transition: all 300ms ease;
     -ms-transition: all 300ms ease;
@@ -5001,7 +5156,7 @@ body.popup-visible{
     display:block;
     color:#777;
     font-size:16px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     transition: .5s ease;
 }
 
@@ -5050,7 +5205,7 @@ body.popup-visible{
 }
 .cart-section .thm-btn {
     font-size: 16px;
-    font-family: '时光体-安娜-bold';
+    font-family: '汉仪帅线体W-bold';
     padding: 12px 22px;
     min-width: 130px;
 }
@@ -5069,7 +5224,7 @@ body.popup-visible{
 .cart-table .cart-header {
   position: relative;
   width: 100%;
-  font-family: '时光体-安娜';
+  font-family: '汉仪帅线体W';
   text-transform: capitalize;
   font-size: 20px;
   border-radius: 7px;
@@ -5095,7 +5250,7 @@ body.popup-visible{
     line-height: 24px;
     padding: 43px 20px 43px;
     min-width: 100px;
-    font-family: '时光体-安娜-semibold';
+    font-family: '汉仪帅线体W-semibold';
     font-size: 18px;
     color: #fba505;
     text-align: center;
@@ -5130,7 +5285,7 @@ body.popup-visible{
   margin-top: 20px;
   margin-bottom: 5px;
   color: #8a7bd1;
-  font-family: '时光体-安娜-semibold';
+  font-family: '汉仪帅线体W-semibold';
   text-transform: capitalize;
 }
 
@@ -5245,7 +5400,7 @@ body.popup-visible{
   color: #777;
 }
 .cart-section .totals-table .col-title {
-  font-family: '时光体-安娜-semibold';
+  font-family: '汉仪帅线体W-semibold';
   font-size: 16px;
   color: #777;
 }
@@ -5281,7 +5436,7 @@ body.popup-visible{
     text-align: center;
     background: #8a7bd1;
     font-size: 18px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
 }
 .cart-section .cart-total .thm-btn span {
     font-size: 18px;
@@ -5359,7 +5514,7 @@ body.popup-visible{
     background:#f8b54d;
     color:#fff;
     font-size:20px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
 }
 
 .checkout-page .default-links li a{
@@ -5385,7 +5540,7 @@ body.popup-visible{
     font-size:16px;
     color: #fc5b4e;
     cursor:pointer;
-    font-family: '时光体-安娜-semibold';
+    font-family: '汉仪帅线体W-semibold';
 }
 
 
@@ -5440,7 +5595,7 @@ body.popup-visible{
     font-weight:normal;
     font-size:15px;
     color:#777;
-    font-family: '时光体-安娜-medium';
+    font-family: '汉仪帅线体W-medium';
     line-height:20px;
     background:#f9f9f9;
 }
@@ -5468,7 +5623,7 @@ body.popup-visible{
     text-align: center;
     background: #8a7bd1;
     font-size: 18px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
 }
 
 
@@ -5506,7 +5661,7 @@ body.popup-visible{
     text-transform: capitalize;
     color: #232323;
     font-size: 16px;
-    font-family: '时光体-安娜-medium';
+    font-family: '汉仪帅线体W-medium';
 }
 
 .shop-form .form-group .field-label sup{
@@ -5528,7 +5683,7 @@ body.popup-visible{
     display:block;
     width:100%;
     background:#ffffff;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     color: #777;
     line-height:24px;
     padding:9px 15px;
@@ -5612,7 +5767,7 @@ body.popup-visible{
     padding:15px 15px;
     width:50%;;
     color: #232323;
-    font-family: '时光体-安娜-medium';
+    font-family: '汉仪帅线体W-medium';
     font-size: 17px;
 
 }
@@ -5630,18 +5785,18 @@ body.popup-visible{
 .checkout-page .orders-table li .col.st-2 {
     color: #8a7bd1;   
     font-size: 18px;
-    font-family: '时光体-安娜-semibold';
+    font-family: '汉仪帅线体W-semibold';
     border-bottom: 1px solid #ececec;
 }
 .checkout-page .orders-table li .col.st-3 {
     color: #f8b54d;   
     font-size: 18px;
-    font-family: '时光体-安娜-semibold';
+    font-family: '汉仪帅线体W-semibold';
 }
 .checkout-page .orders-table li .col.st-4 {
     color: #777;   
     font-size: 18px;
-    font-family: '时光体-安娜-semibold';
+    font-family: '汉仪帅线体W-semibold';
 }
 
 .checkout-page .orders-table .total{
@@ -5682,7 +5837,7 @@ body.popup-visible{
 
 .your-order .coupon-code .form-group button{
     font-size: 16px;
-    font-family: '时光体-安娜-bold';
+    font-family: '汉仪帅线体W-bold';
     padding: 12px 22px;
     min-width: 130px;
 }
@@ -5736,7 +5891,7 @@ body.popup-visible{
     position: relative;
     color: #f8b54d;
     font-size: 15px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     margin-bottom: 10px;
     padding-top: 5px;
 }
@@ -5783,7 +5938,7 @@ body.popup-visible{
     display:block;
     color:#777;
     font-size:20px;
-    font-family: '时光体-安娜';
+    font-family: '汉仪帅线体W';
     transition: .5s ease;
 }
 
@@ -5958,19 +6113,19 @@ body.popup-visible{
 .single-class-content .top-box .text-box .box > span {
   color: #777;
   font-size: 16px;
-  font-family: '时光体-安娜';
+  font-family: '汉仪帅线体W';
 }
 .single-class-content .top-box .price-box {
   color: #f8b54d;
   font-size: 22px;
-  font-family: '时光体-安娜-semibold';
+  font-family: '汉仪帅线体W-semibold';
   border-top: 1px solid #ececec;
   padding-top: 18px;
 }
 .single-class-content .top-box .extra-price {
   color: #777;
   font-size: 16px;
-  font-family: '时光体-安娜';
+  font-family: '汉仪帅线体W';
   border-bottom: 1px solid #ececec;
   padding-bottom: 18px;
 }
@@ -5994,7 +6149,7 @@ body.popup-visible{
     position: absolute;
     left: 0;
     top:10px;
-    font-family: '时光体-安娜-bold';
+    font-family: '汉仪帅线体W-bold';
     font-size: 18px;
     color: #8a7bd1;
 }
@@ -6017,7 +6172,7 @@ body.popup-visible{
 }
 .single-class-content .bottom-box .thm-btn {
     font-size: 16px;
-    font-family: '时光体-安娜-bold';
+    font-family: '汉仪帅线体W-bold';
     padding: 12px 22px;
     min-width: 150px;
     margin-right: 20px;
@@ -6059,7 +6214,7 @@ body.popup-visible{
 }
 .single-class-content .tab-box .tab-title ul li a {
   display: inline-block;
-  font-family: '时光体-安娜';
+  font-family: '汉仪帅线体W';
   font-size: 18px;
   color: #fba505;
   border-radius: 0 10px;
